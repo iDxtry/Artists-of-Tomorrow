@@ -5206,6 +5206,12 @@ body:not(.lot-site) .lot-site-header::after {
     text-transform: uppercase;
 }
 
+.map-popup-badge--active {
+    background: rgba(72, 175, 120, 0.12);
+    color: #2E7D52;
+    border-color: rgba(72, 175, 120, 0.35);
+}
+
 .map-popup-link {
     margin-top: 4px;
 }
