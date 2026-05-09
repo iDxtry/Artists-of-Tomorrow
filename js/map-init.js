@@ -54,10 +54,12 @@
 
   // ── Active pins — India (2) ────────────────────────────────────────────────
   // Slight lat/lng offset so icons don't fully stack (same campus)
-  [
+  var activeSites = [
     { name: 'Government Senior Secondary School, Nathupur \u2014 Middle School', lat: 28.8451, lng: 77.1564, sectionId: 'middle-school', img: '../images/1stPlaceMiddleSchool.jpg' },
     { name: 'Government Senior Secondary School, Nathupur \u2014 High School', lat: 28.8458, lng: 77.1572, sectionId: 'high-school', img: '../images/1stPlaceHighSchool.jpeg' }
-  ].forEach(function (s) {
+  ];
+
+  activeSites.forEach(function (s) {
     L.marker([s.lat, s.lng], { icon: activeIcon, riseOnHover: true, zIndexOffset: 1000 })
       .addTo(map)
       .bindPopup(activePopupHTML(s.name, s.sectionId, s.img), { maxWidth: 260 });
@@ -85,7 +87,7 @@
 
     // Honduras (14)
     { name: 'C.E.B. Las Am\u00e9ricas', country: 'Honduras', lat: 14.1150, lng: -87.2180 },
-    { name: 'Escuela Modesto Rodas Alvarado', country: 'Honduras', lat: 14.0753, lng: -87.2246 },
+    { name: 'C.E.B.G. Dr. Modesto Rodas Alvarado', country: 'Honduras', lat: 14.0753, lng: -87.2246 },
     { name: 'C.E.B. Estado de Israel', country: 'Honduras', lat: 14.0715, lng: -87.2229 },
     { name: 'Rep\u00fablica de China', country: 'Honduras', lat: 14.0880, lng: -87.1980 },
     { name: 'C.E.B. Tim Hines', country: 'Honduras', lat: 14.1100, lng: -87.2120 },
@@ -93,17 +95,17 @@
     { name: 'C.E.B. Dr. Ram\u00f3n Rosa #2', country: 'Honduras', lat: 14.1200, lng: -87.2230 },
     { name: 'C.E.B. Manuel Bonilla', country: 'Honduras', lat: 15.7888, lng: -86.7919 },
     { name: 'C.E.B. Mary Flakes de Flores', country: 'Honduras', lat: 14.0883, lng: -87.2525 },
-    { name: 'C.E.B. Roberto Larios Silva', country: 'Honduras', lat: 14.0900, lng: -87.2060 },
+    { name: 'C.E.B. Ing. Roberto Larios Silva', country: 'Honduras', lat: 14.0900, lng: -87.2060 },
     { name: 'C.E.B. Jos\u00e9 Trinidad Caba\u00f1as (Aldea Boquer\u00f3n)', country: 'Honduras', lat: 14.0600, lng: -87.2100 },
     { name: 'C.E.B. Jos\u00e9 Castro L\u00f3pez', country: 'Honduras', lat: 14.0940, lng: -87.2000 },
     { name: 'C.E.B. Jos\u00e9 Trinidad Caba\u00f1as (Villa Nueva)', country: 'Honduras', lat: 14.4200, lng: -88.2500 },
     { name: 'C.E.B. Marcelino Pineda L\u00f3pez', country: 'Honduras', lat: 14.1050, lng: -87.2050 },
 
-    // Guatemala (17)
-    { name: 'Escuela Bertha Herrera de Ruano', country: 'Guatemala', lat: 14.4875, lng: -90.6875 },
+    // Guatemala (14)
+    { name: 'Escuela Bertha Herrera de Ruano JV', country: 'Guatemala', lat: 14.4875, lng: -90.6875 },
     { name: 'Escuela Eduardo C\u00e1ceres', country: 'Guatemala', lat: 14.6500, lng: -90.5050 },
-    { name: 'Escuela Mezquital II JM', country: 'Guatemala', lat: 14.5050, lng: -90.6950 },
-    { name: 'Escuela Mezquital II JV', country: 'Guatemala', lat: 14.5070, lng: -90.6960 },
+    { name: 'Escuela El Mezquital II JM', country: 'Guatemala', lat: 14.5050, lng: -90.6950 },
+    { name: 'Escuela El Mezquital II JV', country: 'Guatemala', lat: 14.5070, lng: -90.6960 },
     { name: 'Escuela Jos\u00e9 Mar\u00eda Fuentes', country: 'Guatemala', lat: 14.6300, lng: -90.5150 },
     { name: 'Escuela Juan de Francisco Mart\u00ed', country: 'Guatemala', lat: 14.6200, lng: -90.5200 },
     { name: 'Escuela Pedro Valenzuela', country: 'Guatemala', lat: 14.5900, lng: -90.5400 },
@@ -112,21 +114,23 @@
     { name: 'INEBEMEZ JM', country: 'Guatemala', lat: 14.5400, lng: -90.7330 },
     { name: 'INEBEMEZ JV', country: 'Guatemala', lat: 14.5420, lng: -90.7340 },
     { name: 'Instituto Oscar Berger', country: 'Guatemala', lat: 14.6646, lng: -90.4300 },
-    { name: 'Escuela Mezquital I JM', country: 'Guatemala', lat: 14.5100, lng: -90.6980 },
-    { name: 'Escuela Mezquital I JV', country: 'Guatemala', lat: 14.5120, lng: -90.6990 },
-    { name: 'Escuela Hatillo 2', country: 'Guatemala', lat: 14.5014, lng: -90.8114 },
-    { name: 'Escuela La Capri', country: 'Guatemala', lat: 14.4751, lng: -90.4919 },
-    { name: 'Escuela Bilingüe María Ossa de Amador', country: 'Guatemala', lat: 14.6100, lng: -90.5300 },
+    { name: 'Escuela El Mezquital I JM', country: 'Guatemala', lat: 14.5100, lng: -90.6980 },
+    { name: 'Escuela El Mezquital I JV', country: 'Guatemala', lat: 14.5120, lng: -90.6990 },
 
     // Panama (2)
     { name: 'Escuela Juan B. Sosa', country: 'Panama', lat: 8.9556, lng: -79.5431 },
-    { name: 'Escuela Flora Tolentino', country: 'Panama', lat: 8.9870, lng: -79.5130 },
+    { name: 'Escuela Maria Ossa de Amador', country: 'Panama', lat: 8.9870, lng: -79.5130 },
 
-    // Dominican Republic (2)
-    { name: 'Escuela El Valiente', country: 'Dominican Republic', lat: 19.2500, lng: -69.5000 },
+    // Dominican Republic (3)
+    { name: 'Escuela Flora Tolentino', country: 'Dominican Republic', lat: 18.4861, lng: -69.9312 },
+    { name: 'Escuela El Valiente', country: 'Dominican Republic', lat: 18.4575, lng: -69.6770 },
     { name: 'Escuela Los Alifonsos', country: 'Dominican Republic', lat: 18.5001, lng: -69.8500 },
 
-    // Mexico (7)
+    // Costa Rica (2)
+    { name: 'Escuela Hatillo 2', country: 'Costa Rica', lat: 9.9230, lng: -84.1110 },
+    { name: 'Escuela Finca La Capri', country: 'Costa Rica', lat: 9.8790, lng: -84.0500 },
+
+    // Mexico (9)
     { name: 'Primaria Manuel Saenz', country: 'Mexico', lat: 25.8139, lng: -100.2595 },
     { name: 'Primaria Rafael Ar\u00e9valo Mart\u00ednez', country: 'Mexico', lat: 19.3800, lng: -99.1700 },
     { name: 'Secundaria 253', country: 'Mexico', lat: 25.7752, lng: -100.1092 },
@@ -135,7 +139,7 @@
     { name: 'Telesecundaria Quetzalc\u00f3atl', country: 'Mexico', lat: 19.4800, lng: -99.0800 },
     { name: 'Escuela Primaria 5 de Febrero', country: 'Mexico', lat: 24.0764, lng: -104.5043 },
     { name: 'Escuela Primaria L\u00e1zaro C\u00e1rdenas', country: 'Mexico', lat: 19.4500, lng: -99.1200 },
-    { name: 'Escuela Primaria Lic. Gabril Ramos Mill\u00e1n', country: 'Mexico', lat: 19.4400, lng: -99.1100 },
+    { name: 'Escuela Primaria Lic. Gabriel Ramos Mill\u00e1n', country: 'Mexico', lat: 19.4400, lng: -99.1100 },
 
     // Colombia (2)
     { name: 'I.E. F\u00e9 y Alegr\u00eda', country: 'Colombia', lat: 6.2442, lng: -75.5812 },
@@ -146,7 +150,7 @@
   // Rendered first so dots sit on top.
   var clusterHalos = [
     { lat: 13.72, lng: -89.22, radius: 28000, label: 'El Salvador' }, // 16 schools
-    { lat: 14.55, lng: -90.60, radius: 30000, label: 'Guatemala' },   // 17 schools
+    { lat: 14.55, lng: -90.60, radius: 30000, label: 'Guatemala' },   // 14 schools
     { lat: 14.10, lng: -87.21, radius: 22000, label: 'Honduras' },    // 14 schools
     { lat: 19.42, lng: -99.15, radius: 22000, label: 'Mexico' }       // 9 schools
   ];
@@ -169,5 +173,11 @@
       .addTo(map)
       .bindPopup(partnerPopupHTML(s.name, s.country), { maxWidth: 240 });
   });
+
+  var allSites = activeSites.concat(partnerSites);
+  var allSiteBounds = L.latLngBounds(allSites.map(function (s) {
+    return [s.lat, s.lng];
+  }));
+  map.fitBounds(allSiteBounds.pad(0.12), { maxZoom: 3 });
 
 })();
