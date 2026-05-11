@@ -23,7 +23,7 @@
       '<span class="aot-active-marker__pulse" aria-hidden="true"></span>' +
       '<span class="aot-active-marker__ring" aria-hidden="true"></span>' +
       '<span class="aot-active-marker__dot">' +
-      '<img src="../images/logo-favicon.png" alt="" width="18" height="18">' +
+      '<img src="images/logo-favicon.png" alt="" width="18" height="18">' +
       '</span>',
     iconSize: [28, 28],
     iconAnchor: [14, 14],
@@ -55,8 +55,8 @@
   // ── Active pins — India (2) ────────────────────────────────────────────────
   // Slight lat/lng offset so icons don't fully stack (same campus)
   var activeSites = [
-    { name: 'Government Senior Secondary School, Nathupur \u2014 Middle School', lat: 28.8451, lng: 77.1564, sectionId: 'middle-school', img: '../images/1stPlaceMiddleSchool.jpg' },
-    { name: 'Government Senior Secondary School, Nathupur \u2014 High School', lat: 28.8458, lng: 77.1572, sectionId: 'high-school', img: '../images/1stPlaceHighSchool.jpeg' }
+    { name: 'Government Senior Secondary School, Nathupur \u2014 Middle School', lat: 28.8451, lng: 77.1564, sectionId: 'middle-school', img: 'images/1stPlaceMiddleSchool.jpg' },
+    { name: 'Government Senior Secondary School, Nathupur \u2014 High School', lat: 28.8458, lng: 77.1572, sectionId: 'high-school', img: 'images/1stPlaceHighSchool.jpeg' }
   ];
 
   activeSites.forEach(function (s) {
