@@ -24,13 +24,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Newsreader:ital,wght@0,400;0,600;1,400&family=Playfair+Display:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap">
-    <script>
-        // Inline script to prevent FOUC and handle interactions before main.js loads
-        document.documentElement.className = 'js-loading';
-        window.addEventListener('load', () => {
-            document.documentElement.className = '';
-        });
-    </script>
+    <script src="js/page-boot.js"></script>
 </head>
 <body>
     <header class="lot-site-header">
@@ -194,23 +188,8 @@
     </footer>
 
     <script src="js/main.js"></script>
-
-    <!-- Microsoft Clarity Tracking -->
-    <script type="text/javascript">
-        (function(c,l,a,r,i,t,y){
-            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-        })(window, document, "clarity", "script", "scsvrz0zyk");
-    </script>
-
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-K8P4HJ9KY3"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-K8P4HJ9KY3');
-    </script>
+    <script src="js/privacy-notice.js"></script>
+    <script src="js/analytics-consent.js"></script>
+    <script src="js/clarity-helper.js"></script>
 </body>
 </html>
