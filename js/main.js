@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const header = document.querySelector('header');
     const backToTopBtn = document.createElement('button');
     backToTopBtn.className = 'back-to-top';
-    backToTopBtn.innerHTML = '↑';
+    backToTopBtn.textContent = '↑';
     backToTopBtn.setAttribute('aria-label', 'Back to top');
     document.body.appendChild(backToTopBtn);
 
@@ -311,111 +311,26 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Registration form handling
-    const registrationForm = document.getElementById('registrationForm');
-    if (registrationForm) {
-        registrationForm.addEventListener('submit', function(event) {
-            event.preventDefault();
-            
-            // Generate a random submission number
-            const submissionNumber = 'AOT-' + Math.floor(100000 + Math.random() * 900000);
-            
-            alert('Thank you for registering! Your submission number is: ' + submissionNumber + 
-                  '\n\nPlease write this number on the back of your artwork along with your name, date, and grade level.');
-            
-            // Show the upload section
-            const uploadSection = document.getElementById('uploadSection');
-            const submissionNumberField = document.getElementById('submissionNumber');
 
-            if (uploadSection) {
-                uploadSection.classList.remove('hidden');
-            }
-
-            if (submissionNumberField) {
-                submissionNumberField.value = submissionNumber;
-            }
+    // Leaders of Tomorrow mobile navigation toggle
+    const lotNavToggle = document.getElementById('lotNavToggle');
+    const lotNav = document.getElementById('lotNav');
+    if (lotNavToggle && lotNav) {
+        lotNavToggle.addEventListener('click', function() {
+            const open = lotNav.classList.toggle('lot-nav--open');
+            lotNavToggle.classList.toggle('lot-nav-toggle--active', open);
+            lotNavToggle.setAttribute('aria-expanded', String(open));
         });
-    }
-    
-    // Contact form submission with validation
-    const contactForm = document.getElementById('contactForm');
-    if (contactForm) {
-        // Add form validation
-        const formFields = contactForm.querySelectorAll('input[required], textarea[required]');
-        
-        formFields.forEach(field => {
-            field.addEventListener('input', function() {
-                validateField(this);
+
+        lotNav.querySelectorAll('.lot-nav-link').forEach(function(link) {
+            link.addEventListener('click', function() {
+                lotNav.classList.remove('lot-nav--open');
+                lotNavToggle.classList.remove('lot-nav-toggle--active');
+                lotNavToggle.setAttribute('aria-expanded', 'false');
             });
         });
-
-        function validateField(field) {
-            const errorElement = field.nextElementSibling;
-            if (field.validity.valid) {
-                field.classList.remove('error');
-                if (errorElement && errorElement.classList.contains('error-message')) {
-                    errorElement.style.display = 'none';
-                }
-            } else {
-                field.classList.add('error');
-                if (errorElement && errorElement.classList.contains('error-message')) {
-                    errorElement.style.display = 'block';
-                }
-            }
-        }
-
-        contactForm.addEventListener('submit', async function(event) {
-            event.preventDefault();
-            
-            // Validate all fields
-            let isValid = true;
-            formFields.forEach(field => {
-                validateField(field);
-                if (!field.validity.valid) {
-                    isValid = false;
-                }
-            });
-
-            if (!isValid) {
-                return;
-            }
-
-            // Show loading state
-            const submitBtn = contactForm.querySelector('button[type="submit"]');
-            const originalBtnText = submitBtn.innerHTML;
-            submitBtn.disabled = true;
-            submitBtn.innerHTML = 'Sending... <span class="loading"></span>';
-
-            try {
-                // Simulate form submission (replace with actual form submission)
-                await new Promise(resolve => setTimeout(resolve, 1500));
-                
-                // Show success message
-                const successMessage = contactForm.querySelector('.success-message');
-                if (successMessage) {
-                    successMessage.classList.add('visible');
-                }
-                
-                // Reset form
-                contactForm.reset();
-                
-                // Hide success message after 5 seconds
-                setTimeout(() => {
-                    if (successMessage) {
-                        successMessage.classList.remove('visible');
-                    }
-                }, 5000);
-                
-            } catch (error) {
-                alert('There was an error sending your message. Please try again later.');
-            } finally {
-                // Reset button state
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = originalBtnText;
-            }
-        });
     }
-    
+
     // Fade-in elements when they enter the viewport
     const observer = new IntersectionObserver((entries, obs) => {
         entries.forEach(entry => {

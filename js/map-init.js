@@ -30,26 +30,94 @@
     popupAnchor: [0, -16]
   });
 
-  function activePopupHTML(name, sectionId, imagePath) {
-    var imgHTML = imagePath
-      ? '<div class="map-popup-image"><img src="' + imagePath + '" alt="1st Place Artwork" loading="lazy"></div>'
-      : '';
-    return '<span class="map-popup-eyebrow">Active program</span>' +
-      '<p class="map-popup-title">' + name + '</p>' +
-      imgHTML +
-      '<button class="map-popup-link" onclick="(function(){' +
-      'var el=document.getElementById(\'' + sectionId + '\');' +
-      'if(el){el.scrollIntoView({behavior:\'smooth\',block:\'start\'});}' +
-      '}())">Explore this school <span aria-hidden="true">&rarr;</span></button>';
+  function createElement(tagName, options) {
+    var element = document.createElement(tagName);
+    options = options || {};
+
+    if (options.className) {
+      element.className = options.className;
+    }
+
+    if (options.text) {
+      element.textContent = options.text;
+    }
+
+    if (options.attributes) {
+      Object.keys(options.attributes).forEach(function (name) {
+        element.setAttribute(name, options.attributes[name]);
+      });
+    }
+
+    return element;
   }
 
-  function partnerPopupHTML(name, country) {
-    var countryLine = country
-      ? '<span class="map-popup-country">' + country + '</span>'
-      : '';
-    return countryLine +
-      '<p class="map-popup-title">' + name + '</p>' +
-      '<span class="map-popup-badge map-popup-badge--active">Partner School</span>';
+  function activePopupContent(name, sectionId, imagePath) {
+    var popup = createElement('div', { className: 'map-popup-content' });
+    var eyebrow = createElement('span', {
+      className: 'map-popup-eyebrow',
+      text: 'Active program'
+    });
+    var title = createElement('p', {
+      className: 'map-popup-title',
+      text: name
+    });
+    var button = createElement('button', {
+      className: 'map-popup-link',
+      attributes: { type: 'button' }
+    });
+    var arrow = createElement('span', {
+      text: '→',
+      attributes: { 'aria-hidden': 'true' }
+    });
+
+    popup.appendChild(eyebrow);
+    popup.appendChild(title);
+
+    if (imagePath) {
+      var imageWrapper = createElement('div', { className: 'map-popup-image' });
+      var image = createElement('img', {
+        attributes: {
+          src: imagePath,
+          alt: '1st Place Artwork',
+          loading: 'lazy'
+        }
+      });
+      imageWrapper.appendChild(image);
+      popup.appendChild(imageWrapper);
+    }
+
+    button.append('Explore this school ', arrow);
+    button.addEventListener('click', function () {
+      var el = document.getElementById(sectionId);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+    popup.appendChild(button);
+
+    return popup;
+  }
+
+  function partnerPopupContent(name, country) {
+    var popup = createElement('div', { className: 'map-popup-content' });
+
+    if (country) {
+      popup.appendChild(createElement('span', {
+        className: 'map-popup-country',
+        text: country
+      }));
+    }
+
+    popup.appendChild(createElement('p', {
+      className: 'map-popup-title',
+      text: name
+    }));
+    popup.appendChild(createElement('span', {
+      className: 'map-popup-badge map-popup-badge--active',
+      text: 'Partner School'
+    }));
+
+    return popup;
   }
 
   // ── Active pins — India (2) ────────────────────────────────────────────────
@@ -62,7 +130,7 @@
   activeSites.forEach(function (s) {
     L.marker([s.lat, s.lng], { icon: activeIcon, riseOnHover: true, zIndexOffset: 1000 })
       .addTo(map)
-      .bindPopup(activePopupHTML(s.name, s.sectionId, s.img), { maxWidth: 260 });
+      .bindPopup(activePopupContent(s.name, s.sectionId, s.img), { maxWidth: 260 });
   });
 
   // ── Partner schools (62) — all active with pulsing marker ──────────────────
@@ -171,7 +239,7 @@
   partnerSites.forEach(function (s) {
     L.marker([s.lat, s.lng], { icon: activeIcon, riseOnHover: true })
       .addTo(map)
-      .bindPopup(partnerPopupHTML(s.name, s.country), { maxWidth: 240 });
+      .bindPopup(partnerPopupContent(s.name, s.country), { maxWidth: 240 });
   });
 
   var allSites = activeSites.concat(partnerSites);
