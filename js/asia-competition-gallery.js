@@ -1,14 +1,14 @@
 (function () {
   'use strict';
 
-  var winnerTarget = document.querySelector('[data-india-winner-groups]');
-  var photoTrack = document.querySelector('[data-india-photo-track]');
-  var photoCount = document.querySelector('[data-india-photo-count]');
+  var winnerTarget = document.querySelector('[data-asia-winner-groups]');
+  var photoTrack = document.querySelector('[data-asia-photo-track]');
+  var photoCount = document.querySelector('[data-asia-photo-count]');
 
   var groups = [
     {
       title: 'Middle School',
-      lead: 'Shared India placements for the middle school division.',
+      lead: 'Shared Asia placements for the middle school division.',
       winners: [
         { title: '1st Place', className: 'first-place', src: 'images/1stPlaceMiddleSchool.jpg', webp: 'images/1stPlaceMiddleSchool.webp', alt: 'Artwork by the 1st place middle school winner' },
         { title: '2nd Place', className: 'second-place', src: 'images/2ndPlaceMiddleSchool.jpeg', webp: 'images/2ndPlaceMiddleSchool.webp', alt: 'Artwork by the 2nd place middle school winner' },
@@ -20,7 +20,7 @@
     },
     {
       title: 'High School',
-      lead: 'Shared India placements for the high school division.',
+      lead: 'Shared Asia placements for the high school division.',
       winners: [
         { title: '1st Place', className: 'first-place', src: 'images/1stPlaceHighSchool.jpeg', webp: 'images/1stPlaceHighSchool.webp', alt: 'Artwork by the 1st place high school winner' },
         { title: '2nd Place', className: 'second-place', src: 'images/2ndPlaceHighSchool.jpeg', webp: 'images/2ndPlaceHighSchool.webp', alt: 'Artwork by the 2nd place high school winner' },
@@ -39,9 +39,9 @@
     { src: 'images/compnathupur/1stPlaceHighSchoolDisplay.jpeg', webp: 'images/compnathupur/1stPlaceHighSchoolDisplay.webp', alt: 'High school 1st place recognition photo', caption: 'High school recognition' },
     { src: 'images/compnathupur/2ndPlaceHighSchoolDisplay.jpeg', webp: 'images/compnathupur/2ndPlaceHighSchoolDisplay.webp', alt: 'High school 2nd place recognition photo', caption: 'High school recognition' },
     { src: 'images/compnathupur/3rdPlaceHighSchoolDisplay.jpeg', webp: 'images/compnathupur/3rdPlaceHighSchoolDisplay.webp', alt: 'High school 3rd place recognition photo', caption: 'High school recognition' },
-    { src: 'images/compnathupur/PHOTO-2025-09-24-06-56-19.jpg', webp: 'images/compnathupur/PHOTO-2025-09-24-06-56-19.webp', alt: 'India middle school competition event photo', caption: 'Middle school event photo' },
-    { src: 'images/compnathupur/PHOTO-2025-09-24-09-55-20.jpg', webp: 'images/compnathupur/PHOTO-2025-09-24-09-55-20.webp', alt: 'India high school competition event photo', caption: 'High school event photo' },
-    { src: 'images/compnathupur/PHOTO-2025-09-24-11-47-14.jpg', webp: 'images/compnathupur/PHOTO-2025-09-24-11-47-14.webp', alt: 'India high school award event photo', caption: 'High school event photo' }
+    { src: 'images/compnathupur/PHOTO-2025-09-24-06-56-19.jpg', webp: 'images/compnathupur/PHOTO-2025-09-24-06-56-19.webp', alt: 'Asia middle school competition event photo', caption: 'Middle school event photo' },
+    { src: 'images/compnathupur/PHOTO-2025-09-24-09-55-20.jpg', webp: 'images/compnathupur/PHOTO-2025-09-24-09-55-20.webp', alt: 'Asia high school competition event photo', caption: 'High school event photo' },
+    { src: 'images/compnathupur/PHOTO-2025-09-24-11-47-14.jpg', webp: 'images/compnathupur/PHOTO-2025-09-24-11-47-14.webp', alt: 'Asia high school award event photo', caption: 'High school event photo' }
   ];
 
   function escapeHTML(value) {
@@ -85,6 +85,6 @@
   }
 
   if (photoCount) {
-    photoCount.textContent = photos.length + ' India event photos.';
+    photoCount.textContent = photos.length + ' Asia event photos.';
   }
 })();

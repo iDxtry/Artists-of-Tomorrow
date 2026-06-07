@@ -12,14 +12,14 @@
       subtitle: 'India',
       division: 'Middle School',
       submissionCount: 6,
-      searchText: 'india nathupur government senior secondary school middle school'
+      searchText: 'asia india nathupur government senior secondary school middle school'
     },
     'high-school': {
       title: 'Government Senior Secondary School, Nathupur - High School',
       subtitle: 'India',
       division: 'High School',
       submissionCount: 6,
-      searchText: 'india nathupur government senior secondary school high school'
+      searchText: 'asia india nathupur government senior secondary school high school'
     }
   };
 
@@ -78,7 +78,7 @@
   }
 
   function schoolDetailsHTML(school) {
-    return '<div class="journey-grid school-profile-grid" data-india-school-details data-animate-group>' +
+    return '<div class="journey-grid school-profile-grid" data-asia-school-details data-animate-group>' +
       '<article class="journey-card editorial-layer" data-animate>' +
       '<h3>School Details</h3>' +
       '<ul class="school-profile-list">' +
@@ -89,11 +89,11 @@
       '</article>' +
       '<article class="journey-card editorial-layer" data-animate>' +
       '<h3>Competition Format</h3>' +
-      '<p>The India competition is grouped into middle school and high school divisions, with one shared India winner gallery.</p>' +
+      '<p>The Asia competition is grouped into middle school and high school divisions, with one shared Asia winner gallery.</p>' +
       '</article>' +
       '<article class="journey-card editorial-layer" data-animate>' +
       '<h3>Gallery Status</h3>' +
-      '<p>Student submissions are available below. Winner artwork appears in the shared India gallery.</p>' +
+      '<p>Student submissions are available below. Winner artwork appears in the shared Asia gallery.</p>' +
       '</article>' +
       '</div>';
   }
@@ -107,7 +107,7 @@
       var photoGallery = winnersSection ? winnersSection.querySelector('.photo-gallery') : null;
       var carouselTrack = photoGallery ? photoGallery.querySelector('[data-carousel-track]') : null;
 
-      if (school && header && !section.querySelector('[data-india-school-details]')) {
+      if (school && header && !section.querySelector('[data-asia-school-details]')) {
         header.insertAdjacentHTML('afterend', schoolDetailsHTML(school));
       }
 
@@ -117,10 +117,10 @@
 
       var actualSubmissionCount = carouselTrack ? carouselTrack.querySelectorAll('.carousel-item:not(.carousel-item--clone)').length : school.submissionCount;
 
-      if (!winnersSection.querySelector('[data-india-artwork-header]')) {
+      if (!winnersSection.querySelector('[data-asia-artwork-header]')) {
         var artworkHeader = document.createElement('div');
         artworkHeader.className = 'journey-header editorial-header';
-        artworkHeader.setAttribute('data-india-artwork-header', '');
+        artworkHeader.setAttribute('data-asia-artwork-header', '');
         artworkHeader.innerHTML = '<h2>Student Artwork Gallery</h2>' +
           '<p>' + actualSubmissionCount + (actualSubmissionCount === 1 ? ' student submission.' : ' student submissions.') + '</p>';
         winnersSection.insertBefore(artworkHeader, winnersSection.firstChild);
@@ -133,13 +133,13 @@
         }
       }
 
-      if (photoGallery && !winnersSection.querySelector('[data-india-shared-gallery-callout]')) {
+      if (photoGallery && !winnersSection.querySelector('[data-asia-shared-gallery-callout]')) {
         var callout = document.createElement('div');
         callout.className = 'journey-callout school-profile-callout';
-        callout.setAttribute('data-india-shared-gallery-callout', '');
-        callout.innerHTML = '<p>The India winner gallery is shared across both Nathupur school divisions.</p>' +
+        callout.setAttribute('data-asia-shared-gallery-callout', '');
+        callout.innerHTML = '<p>The Asia winner gallery is shared across both Nathupur school divisions.</p>' +
           '<div class="journey-actions">' +
-          '<a href="india-competition-gallery.html" class="cta-button">View India Gallery</a>' +
+          '<a href="asia-competition-gallery.html" class="cta-button">View Asia Gallery</a>' +
           '<a href="our-journey.html#global-map-section" class="secondary-button">Back to Map</a>' +
           '</div>';
         photoGallery.insertAdjacentElement('afterend', callout);

@@ -89,9 +89,7 @@
       return 'Did not compete';
     }
 
-    return activeRanges.map(function (range) {
-      return 'Ages ' + range;
-    }).join(', ');
+    return 'Ages ' + activeRanges.join(', ');
   }
 
   function updateMeta(item) {

@@ -156,9 +156,9 @@ All images in `images/` are served with a 1-year browser cache. See the [Caching
 
 ## School Profiles & Galleries
 
-### India Partner School Profile (`nathupur-india.html`)
+### Asia Partner School Profile (`nathupur-asia.html`)
 - Structured with two divisions: Middle School and High School.
-- Does not contain a local winner grid. All winner artwork is showcased in the shared `india-competition-gallery.html`.
+- Does not contain a local winner grid. All winner artwork is showcased in the shared `asia-competition-gallery.html`.
 - Displays student artwork submissions using a photo carousel (37 submissions total per division).
 - The dynamic subheader reads `37 student submissions.` (matching the Latin America format).
 - Accessible controls and tracks have labels updated from "photo gallery" to "student artwork gallery".
