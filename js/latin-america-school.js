@@ -8,6 +8,7 @@
 
   var schools = window.aotLatinAmericaSchools || [];
   var galleries = window.aotLatinAmericaGalleryData || { schools: {} };
+  var artworkCounts = window.aotArtworkCounts || { schools: {} };
   var params = new URLSearchParams(window.location.search);
   var slug = params.get('school');
   var school = schools.find(function (item) {
@@ -27,6 +28,15 @@
       .replace(/>/g, '&gt;')
       .replace(/"/g, '&quot;')
       .replace(/'/g, '&#39;');
+  }
+
+  function normalizeText(value) {
+    return String(value || '')
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, ' ')
+      .trim();
   }
 
   function schoolHref(item) {
@@ -64,6 +74,26 @@
     }).join('');
   }
 
+  function ageRangeText(item) {
+    var counts = artworkCounts.schools[item.slug];
+    if (!counts || !counts.ageCounts) {
+      return 'Age ranges coming soon';
+    }
+
+    var activeRanges = [];
+    if (counts.ageCounts['8-11'] > 0) activeRanges.push('8-11');
+    if (counts.ageCounts['12-15'] > 0) activeRanges.push('12-15');
+    if (counts.ageCounts['16-18'] > 0) activeRanges.push('16-18');
+
+    if (activeRanges.length === 0) {
+      return 'Did not compete';
+    }
+
+    return activeRanges.map(function (range) {
+      return 'Ages ' + range;
+    }).join(', ');
+  }
+
   function updateMeta(item) {
     var title = item.name + ' | Latin America Partner School';
     var description = item.name + ' in ' + item.country + ' is one of the 62 Latin America Artists of Tomorrow partner schools.';
@@ -88,11 +118,42 @@
     }
 
     directory.innerHTML = schools.map(function (item) {
-      return '<a class="school-directory-card editorial-layer" href="' + escapeHTML(schoolHref(item)) + '" data-animate>' +
+      var searchText = normalizeText(item.name + ' ' + item.country);
+      return '<a class="school-directory-card editorial-layer" href="' + escapeHTML(schoolHref(item)) + '" data-school-card data-search-text="' + escapeHTML(searchText) + '" data-animate>' +
         '<span>' + escapeHTML(item.country) + '</span>' +
         '<strong>' + escapeHTML(item.name) + '</strong>' +
         '</a>';
     }).join('');
+  }
+
+  function initDirectorySearch() {
+    var searchInput = document.querySelector('[data-school-search]');
+    var noResults = document.querySelector('[data-school-search-empty]');
+    var cards = document.querySelectorAll('[data-school-card]');
+
+    if (!searchInput || !cards.length) {
+      return;
+    }
+
+    function filterCards() {
+      var query = normalizeText(searchInput.value);
+      var visibleCount = 0;
+
+      cards.forEach(function (card) {
+        var matches = !query || card.getAttribute('data-search-text').indexOf(query) !== -1;
+        card.hidden = !matches;
+        if (matches) {
+          visibleCount += 1;
+        }
+      });
+
+      if (noResults) {
+        noResults.hidden = visibleCount !== 0;
+      }
+    }
+
+    searchInput.addEventListener('input', filterCards);
+    filterCards();
   }
 
   var profileSection = document.querySelector('[data-school-profile]');
@@ -102,6 +163,7 @@
     if (profileSection) profileSection.hidden = true;
     if (emptySection) emptySection.hidden = false;
     renderDirectory();
+    initDirectorySearch();
     setText('[data-school-name]', 'Latin America Partner Schools');
     setText('[data-school-country]', 'Choose one of the 62 regional partner schools.');
     return;
@@ -112,6 +174,7 @@
 
   setText('[data-school-name]', school.name);
   setText('[data-school-country]', school.country);
+  setText('[data-school-division]', ageRangeText(school));
   updateMeta(school);
   renderArtworkGallery(school);
 })();

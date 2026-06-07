@@ -317,10 +317,32 @@ document.addEventListener('DOMContentLoaded', function() {
     const lotNavToggle = document.getElementById('lotNavToggle');
     const lotNav = document.getElementById('lotNav');
     if (lotNavToggle && lotNav) {
+        const lotSubmenuToggles = lotNav.querySelectorAll('.submenu-toggle');
+
         lotNavToggle.addEventListener('click', function() {
             const open = lotNav.classList.toggle('lot-nav--open');
             lotNavToggle.classList.toggle('lot-nav-toggle--active', open);
             lotNavToggle.setAttribute('aria-expanded', String(open));
+        });
+
+        lotSubmenuToggles.forEach(function(toggle) {
+            toggle.setAttribute('aria-expanded', 'false');
+            toggle.addEventListener('click', function(event) {
+                event.stopPropagation();
+                const parentItem = toggle.closest('.has-submenu');
+                const isOpen = parentItem.classList.toggle('open');
+                toggle.setAttribute('aria-expanded', String(isOpen));
+
+                lotSubmenuToggles.forEach(function(otherToggle) {
+                    if (otherToggle !== toggle) {
+                        const otherParent = otherToggle.closest('.has-submenu');
+                        if (otherParent) {
+                            otherParent.classList.remove('open');
+                        }
+                        otherToggle.setAttribute('aria-expanded', 'false');
+                    }
+                });
+            });
         });
 
         lotNav.querySelectorAll('.lot-nav-link').forEach(function(link) {

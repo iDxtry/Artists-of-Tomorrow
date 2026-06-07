@@ -4,36 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nathupur India Schools | Artists of Tomorrow</title>
-    <meta name="description" content="Explore the Artists of Tomorrow Nathupur, India school partnerships with real winner galleries, competition teams, and photo carousels.">
+    <meta name="description" content="Explore the Artists of Tomorrow Nathupur, India school partnerships with student artwork galleries and competition teams.">
     <link rel="canonical" href="https://artistsoftomorrow.org/nathupur-india.html">
     <!-- Open Graph / Social Media -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Nathupur India Schools | Artists of Tomorrow">
-    <meta property="og:description" content="Explore the Artists of Tomorrow Nathupur, India school partnerships with real winner galleries, competition teams, and photo carousels.">
+    <meta property="og:description" content="Explore the Artists of Tomorrow Nathupur, India school partnerships with student artwork galleries and competition teams.">
     <meta property="og:image" content="https://artistsoftomorrow.org/images/logo.svg">
     <meta property="og:url" content="https://artistsoftomorrow.org/nathupur-india.html">
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Nathupur India Schools | Artists of Tomorrow">
-    <meta name="twitter:description" content="Explore the Artists of Tomorrow Nathupur, India school partnerships with real winner galleries, competition teams, and photo carousels.">
+    <meta name="twitter:description" content="Explore the Artists of Tomorrow Nathupur, India school partnerships with student artwork galleries and competition teams.">
     <meta name="twitter:image" content="https://artistsoftomorrow.org/images/logo.svg">
     <link rel="icon" href="images/logo-favicon.png" type="image/png">
 
     <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css?v=20260607-refactor">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Newsreader:ital,wght@0,400;0,600;1,400&family=Playfair+Display:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap">
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-K8P4HJ9KY3"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
 
-      gtag('config', 'G-K8P4HJ9KY3');
-    </script>
 
 </head>
 <body>
@@ -74,14 +66,15 @@
                         <button class="submenu-toggle active" type="button" aria-expanded="false">Our Journey <span class="submenu-icon" aria-hidden="true"></span></button>
                         <ul class="submenu">
                             <li><a href="our-journey.html">Global Map</a></li>
-                            <li><a href="nathupur-india.html" class="active" aria-current="page">Nathupur India</a></li>
+                            <li><a href="nathupur-india.html" class="active" aria-current="page">India Schools</a></li>
                             <li><a href="latin-america-school.html">Latin America Schools</a></li>
                         </ul>
                     </li>
+                    <li><a href="competition.html">Competition</a></li>
                     <li class="has-submenu">
-                        <button class="submenu-toggle" type="button" aria-expanded="false">Competition <span class="submenu-icon" aria-hidden="true"></span></button>
+                        <button class="submenu-toggle" type="button" aria-expanded="false">Artwork Gallery <span class="submenu-icon" aria-hidden="true"></span></button>
                         <ul class="submenu">
-                            <li><a href="competition.html">India Competition Details</a></li>
+                            <li><a href="india-competition-gallery.html">India Gallery</a></li>
                             <li><a href="latin-america-competition.html">Latin America Gallery</a></li>
                         </ul>
                     </li>
@@ -94,20 +87,53 @@
         </div>
     </header>
 
-    <main class="page-content">
+    <main class="page-content" data-nathupur-school-page>
         <section class="page-header">
             <div class="container" data-animate>
-                <h1>Nathupur, India Schools</h1>
+                <span class="school-profile-eyebrow">India Partner School</span>
+                <h1 data-nathupur-title>Select an India School</h1>
+                <p class="page-header-subtitle" data-nathupur-subtitle>Choose an India school division to explore its competition team and student artwork submissions.</p>
             </div>
         </section>
 
-        <section class="journey-intro">
+        <section class="journey-intro" data-nathupur-selector>
             <div class="container" data-animate>
                 <p>Artists of Tomorrow partners with schools in Nathupur to create vibrant, student-centered art programs. Together with educators, community leaders, and volunteers, we design spaces where every young person can explore creativity, practice storytelling, and feel seen.</p>
             </div>
         </section>
 
-        <section class="journey-section" id="middle-school">
+        <section class="journey-section school-profile-empty" data-nathupur-selector>
+            <div class="container">
+                <div class="journey-header editorial-header" data-animate>
+                    <h2>Select an India School</h2>
+                    <p>Search or choose one of the two India school divisions below.</p>
+                </div>
+                <div class="school-search" data-animate>
+                    <label for="india-school-search">Search India schools</label>
+                    <input id="india-school-search" type="search" placeholder="Search by school or division" data-school-search>
+                </div>
+                <div class="school-directory-grid" data-animate-group>
+                    <a class="school-directory-card editorial-layer" href="nathupur-india.html?school=middle-school" data-school-card data-search-text="india nathupur government senior secondary school middle school" data-animate>
+                        <span>India</span>
+                        <strong>Government Senior Secondary School, Nathupur - Middle School</strong>
+                    </a>
+                    <a class="school-directory-card editorial-layer" href="nathupur-india.html?school=high-school" data-school-card data-search-text="india nathupur government senior secondary school high school" data-animate>
+                        <span>India</span>
+                        <strong>Government Senior Secondary School, Nathupur - High School</strong>
+                    </a>
+                </div>
+                <p class="school-search-empty" data-school-search-empty hidden>No India schools match your search.</p>
+                <div class="journey-callout" data-animate>
+                    <p>Use the global map to explore all Artists of Tomorrow school partnerships.</p>
+                    <div class="journey-actions">
+                        <a href="our-journey.html#global-map-section" class="secondary-button">Open Map</a>
+                        <a href="competition.html" class="cta-button">View Competition Details</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="journey-section" id="middle-school" data-nathupur-school-section data-school="middle-school" hidden>
             <div class="container">
                 <div class="journey-header editorial-header" data-animate>
                     <h2>Government Senior Secondary School, Nathupur &mdash; Middle School</h2>
@@ -152,92 +178,53 @@
                         </article>
                     </div>
                 </div>
-                <div class="journey-subsection journey-subsection--winners" data-animate>
-                    <h3>Winner Gallery</h3>
-                    <div class="winner-grid" data-animate-group>
-                        <article class="winner-card first-place editorial-layer" data-animate>
-                            <div class="winner-image">
-                                <picture><source srcset="images/1stPlaceMiddleSchool.webp" type="image/webp"><img src="images/1stPlaceMiddleSchool.jpg" alt="Artwork by the 1st place middle school winner" loading="lazy"></picture>
-                            </div>
-                            <h4>1st Place</h4>
-                        </article>
-                        <article class="winner-card second-place editorial-layer" data-animate>
-                            <div class="winner-image">
-                                <picture><source srcset="images/2ndPlaceMiddleSchool.webp" type="image/webp"><img src="images/2ndPlaceMiddleSchool.jpeg" alt="Artwork by the 2nd place middle school winner" loading="lazy"></picture>
-                            </div>
-                            <h4>2nd Place</h4>
-                        </article>
-                        <article class="winner-card third-place editorial-layer" data-animate>
-                            <div class="winner-image">
-                                <picture><source srcset="images/3rdPlaceMiddleSchool.webp" type="image/webp"><img src="images/3rdPlaceMiddleSchool.jpg" alt="Artwork by the 3rd place middle school winner" loading="lazy"></picture>
-                            </div>
-                            <h4>3rd Place</h4>
-                        </article>
-                        <article class="winner-card honorable-mention editorial-layer" data-animate>
-                            <div class="winner-image">
-                                <picture><source srcset="images/1stHonorableMentionMiddleSchool.webp" type="image/webp"><img src="images/1stHonorableMentionMiddleSchool.jpeg" alt="Artwork recognized with honorable mention in the middle school competition" loading="lazy"></picture>
-                            </div>
-                            <h4>Honorable Mention 1</h4>
-                        </article>
-                        <article class="winner-card honorable-mention editorial-layer" data-animate>
-                            <div class="winner-image">
-                                <picture><source srcset="images/2ndHonorableMentionMiddleSchool.webp" type="image/webp"><img src="images/2ndHonorableMentionMiddleSchool.jpeg" alt="Artwork highlighted as an honorable mention in the middle school competition" loading="lazy"></picture>
-                            </div>
-                            <h4>Honorable Mention 2</h4>
-                        </article>
-                        <article class="winner-card honorable-mention editorial-layer" data-animate>
-                            <div class="winner-image">
-                                <picture><source srcset="images/3rdHonorableMentionMiddleSchool.webp" type="image/webp"><img src="images/3rdHonorableMentionMiddleSchool.jpeg" alt="Artwork earning honorable mention recognition in the middle school competition" loading="lazy"></picture>
-                            </div>
-                            <h4>Honorable Mention 3</h4>
-                        </article>
-                    </div>
+                <div class="journey-subsection school-artwork-gallery" data-animate>
                     <div class="photo-gallery" data-animate>
                         <h4>Photo Gallery</h4>
                         <div class="photo-carousel" data-carousel>
-                            <button class="carousel-control carousel-control--prev" type="button" aria-label="Scroll to previous middle school photos" data-carousel-prev>
+                            <button class="carousel-control carousel-control--prev" type="button" aria-label="Scroll to previous middle school artwork" data-carousel-prev>
                                 <span aria-hidden="true">&#10094;</span>
                             </button>
-                            <div class="carousel-track" data-carousel-track tabindex="0" aria-label="Middle school competition photo gallery">
-                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/1stHonorableMentionHighSchoolDisplay.webp" type="image/webp"><img src="images/compnathupur/1stHonorableMentionHighSchoolDisplay.jpeg" alt="Competition photo 1 from Nathupur event" loading="lazy"></picture></figure>
-                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/1stHonorableMentionMiddleSchoolDisplay.webp" type="image/webp"><img src="images/compnathupur/1stHonorableMentionMiddleSchoolDisplay.jpeg" alt="Competition photo 2 from Nathupur event" loading="lazy"></picture></figure>
-                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/1stPlaceHighSchoolDisplay.webp" type="image/webp"><img src="images/compnathupur/1stPlaceHighSchoolDisplay.jpeg" alt="Competition photo 3 from Nathupur event" loading="lazy"></picture></figure>
-                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/1stPlaceMiddleSchoolDisplay.webp" type="image/webp"><img src="images/compnathupur/1stPlaceMiddleSchoolDisplay.jpg" alt="Competition photo 4 from Nathupur event" loading="lazy"></picture></figure>
-                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/2ndHonorableMentionHighSchoolDisplay.webp" type="image/webp"><img src="images/compnathupur/2ndHonorableMentionHighSchoolDisplay.jpeg" alt="Competition photo 5 from Nathupur event" loading="lazy"></picture></figure>
-                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/2ndHonorableMentionMiddleSchoolDisplay.webp" type="image/webp"><img src="images/compnathupur/2ndHonorableMentionMiddleSchoolDisplay.jpeg" alt="Competition photo 6 from Nathupur event" loading="lazy"></picture></figure>
-                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/2ndPlaceHighSchoolDisplay.webp" type="image/webp"><img src="images/compnathupur/2ndPlaceHighSchoolDisplay.jpeg" alt="Competition photo 7 from Nathupur event" loading="lazy"></picture></figure>
-                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/2ndPlaceMiddleSchoolDisplay.webp" type="image/webp"><img src="images/compnathupur/2ndPlaceMiddleSchoolDisplay.jpeg" alt="Competition photo 8 from Nathupur event" loading="lazy"></picture></figure>
-                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/3rdHonorableMentionHighSchoolDisplay.webp" type="image/webp"><img src="images/compnathupur/3rdHonorableMentionHighSchoolDisplay.jpeg" alt="Competition photo 9 from Nathupur event" loading="lazy"></picture></figure>
-                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/3rdHonorableMentionMiddleSchoolDisplay.webp" type="image/webp"><img src="images/compnathupur/3rdHonorableMentionMiddleSchoolDisplay.jpeg" alt="Competition photo 10 from Nathupur event" loading="lazy"></picture></figure>
-                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/3rdPlaceHighSchoolDisplay.webp" type="image/webp"><img src="images/compnathupur/3rdPlaceHighSchoolDisplay.jpeg" alt="Competition photo 11 from Nathupur event" loading="lazy"></picture></figure>
-                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/3rdPlaceMiddleSchoolDisplay.webp" type="image/webp"><img src="images/compnathupur/3rdPlaceMiddleSchoolDisplay.jpg" alt="Competition photo 12 from Nathupur event" loading="lazy"></picture></figure>
-                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-06-19-27.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-06-19-27.jpg" alt="Competition photo 13 from Nathupur event" loading="lazy"></picture></figure>
-                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-06-19-28.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-06-19-28.jpg" alt="Competition photo 14 from Nathupur event" loading="lazy"></picture></figure>
-                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-06-56-19.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-06-56-19.jpg" alt="Competition photo 15 from Nathupur event" loading="lazy"></picture></figure>
-                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-06-56-20%202.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-06-56-20%202.jpg" alt="Competition photo 16 from Nathupur event" loading="lazy"></picture></figure>
-                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-06-56-20%203.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-06-56-20%203.jpg" alt="Competition photo 17 from Nathupur event" loading="lazy"></picture></figure>
-                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-06-56-20.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-06-56-20.jpg" alt="Competition photo 18 from Nathupur event" loading="lazy"></picture></figure>
-                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-06-56-21%202.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-06-56-21%202.jpg" alt="Competition photo 19 from Nathupur event" loading="lazy"></picture></figure>
-                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-06-56-21.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-06-56-21.jpg" alt="Competition photo 20 from Nathupur event" loading="lazy"></picture></figure>
-                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-06-56-22%202.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-06-56-22%202.jpg" alt="Competition photo 21 from Nathupur event" loading="lazy"></picture></figure>
-                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-06-56-22%203.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-06-56-22%203.jpg" alt="Competition photo 22 from Nathupur event" loading="lazy"></picture></figure>
-                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-06-56-22.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-06-56-22.jpg" alt="Competition photo 23 from Nathupur event" loading="lazy"></picture></figure>
-                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-06-56-23%202.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-06-56-23%202.jpg" alt="Competition photo 24 from Nathupur event" loading="lazy"></picture></figure>
-                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-06-56-23%203.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-06-56-23%203.jpg" alt="Competition photo 25 from Nathupur event" loading="lazy"></picture></figure>
-                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-06-56-23.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-06-56-23.jpg" alt="Competition photo 26 from Nathupur event" loading="lazy"></picture></figure>
-                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-06-56-24.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-06-56-24.jpg" alt="Competition photo 27 from Nathupur event" loading="lazy"></picture></figure>
-                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-06-56-25.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-06-56-25.jpg" alt="Competition photo 28 from Nathupur event" loading="lazy"></picture></figure>
-                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-06-56-26%202.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-06-56-26%202.jpg" alt="Competition photo 29 from Nathupur event" loading="lazy"></picture></figure>
-                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-06-56-26%203.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-06-56-26%203.jpg" alt="Competition photo 30 from Nathupur event" loading="lazy"></picture></figure>
-                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-06-56-26.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-06-56-26.jpg" alt="Competition photo 31 from Nathupur event" loading="lazy"></picture></figure>
-                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-06-56-27%202.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-06-56-27%202.jpg" alt="Competition photo 32 from Nathupur event" loading="lazy"></picture></figure>
-                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-06-56-27%203.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-06-56-27%203.jpg" alt="Competition photo 33 from Nathupur event" loading="lazy"></picture></figure>
-                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-06-56-27.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-06-56-27.jpg" alt="Competition photo 34 from Nathupur event" loading="lazy"></picture></figure>
-                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-06-56-28.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-06-56-28.jpg" alt="Competition photo 35 from Nathupur event" loading="lazy"></picture></figure>
-                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-06-57-22.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-06-57-22.jpg" alt="Competition photo 36 from Nathupur event" loading="lazy"></picture></figure>
-                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-09-53-22.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-09-53-22.jpg" alt="Competition photo 37 from Nathupur event" loading="lazy"></picture></figure>
+                            <div class="carousel-track" data-carousel-track tabindex="0" aria-label="Middle school student artwork gallery">
+                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/1stHonorableMentionHighSchoolDisplay.webp" type="image/webp"><img src="images/compnathupur/1stHonorableMentionHighSchoolDisplay.jpeg" alt="Student artwork submission 1" loading="lazy"></picture></figure>
+                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/1stHonorableMentionMiddleSchoolDisplay.webp" type="image/webp"><img src="images/compnathupur/1stHonorableMentionMiddleSchoolDisplay.jpeg" alt="Student artwork submission 2" loading="lazy"></picture></figure>
+                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/1stPlaceHighSchoolDisplay.webp" type="image/webp"><img src="images/compnathupur/1stPlaceHighSchoolDisplay.jpeg" alt="Student artwork submission 3" loading="lazy"></picture></figure>
+                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/1stPlaceMiddleSchoolDisplay.webp" type="image/webp"><img src="images/compnathupur/1stPlaceMiddleSchoolDisplay.jpg" alt="Student artwork submission 4" loading="lazy"></picture></figure>
+                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/2ndHonorableMentionHighSchoolDisplay.webp" type="image/webp"><img src="images/compnathupur/2ndHonorableMentionHighSchoolDisplay.jpeg" alt="Student artwork submission 5" loading="lazy"></picture></figure>
+                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/2ndHonorableMentionMiddleSchoolDisplay.webp" type="image/webp"><img src="images/compnathupur/2ndHonorableMentionMiddleSchoolDisplay.jpeg" alt="Student artwork submission 6" loading="lazy"></picture></figure>
+                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/2ndPlaceHighSchoolDisplay.webp" type="image/webp"><img src="images/compnathupur/2ndPlaceHighSchoolDisplay.jpeg" alt="Student artwork submission 7" loading="lazy"></picture></figure>
+                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/2ndPlaceMiddleSchoolDisplay.webp" type="image/webp"><img src="images/compnathupur/2ndPlaceMiddleSchoolDisplay.jpeg" alt="Student artwork submission 8" loading="lazy"></picture></figure>
+                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/3rdHonorableMentionHighSchoolDisplay.webp" type="image/webp"><img src="images/compnathupur/3rdHonorableMentionHighSchoolDisplay.jpeg" alt="Student artwork submission 9" loading="lazy"></picture></figure>
+                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/3rdHonorableMentionMiddleSchoolDisplay.webp" type="image/webp"><img src="images/compnathupur/3rdHonorableMentionMiddleSchoolDisplay.jpeg" alt="Student artwork submission 10" loading="lazy"></picture></figure>
+                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/3rdPlaceHighSchoolDisplay.webp" type="image/webp"><img src="images/compnathupur/3rdPlaceHighSchoolDisplay.jpeg" alt="Student artwork submission 11" loading="lazy"></picture></figure>
+                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/3rdPlaceMiddleSchoolDisplay.webp" type="image/webp"><img src="images/compnathupur/3rdPlaceMiddleSchoolDisplay.jpg" alt="Student artwork submission 12" loading="lazy"></picture></figure>
+                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-06-19-27.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-06-19-27.jpg" alt="Student artwork submission 13" loading="lazy"></picture></figure>
+                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-06-19-28.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-06-19-28.jpg" alt="Student artwork submission 14" loading="lazy"></picture></figure>
+                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-06-56-19.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-06-56-19.jpg" alt="Student artwork submission 15" loading="lazy"></picture></figure>
+                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-06-56-20%202.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-06-56-20%202.jpg" alt="Student artwork submission 16" loading="lazy"></picture></figure>
+                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-06-56-20%203.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-06-56-20%203.jpg" alt="Student artwork submission 17" loading="lazy"></picture></figure>
+                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-06-56-20.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-06-56-20.jpg" alt="Student artwork submission 18" loading="lazy"></picture></figure>
+                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-06-56-21%202.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-06-56-21%202.jpg" alt="Student artwork submission 19" loading="lazy"></picture></figure>
+                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-06-56-21.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-06-56-21.jpg" alt="Student artwork submission 20" loading="lazy"></picture></figure>
+                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-06-56-22%202.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-06-56-22%202.jpg" alt="Student artwork submission 21" loading="lazy"></picture></figure>
+                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-06-56-22%203.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-06-56-22%203.jpg" alt="Student artwork submission 22" loading="lazy"></picture></figure>
+                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-06-56-22.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-06-56-22.jpg" alt="Student artwork submission 23" loading="lazy"></picture></figure>
+                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-06-56-23%202.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-06-56-23%202.jpg" alt="Student artwork submission 24" loading="lazy"></picture></figure>
+                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-06-56-23%203.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-06-56-23%203.jpg" alt="Student artwork submission 25" loading="lazy"></picture></figure>
+                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-06-56-23.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-06-56-23.jpg" alt="Student artwork submission 26" loading="lazy"></picture></figure>
+                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-06-56-24.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-06-56-24.jpg" alt="Student artwork submission 27" loading="lazy"></picture></figure>
+                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-06-56-25.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-06-56-25.jpg" alt="Student artwork submission 28" loading="lazy"></picture></figure>
+                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-06-56-26%202.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-06-56-26%202.jpg" alt="Student artwork submission 29" loading="lazy"></picture></figure>
+                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-06-56-26%203.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-06-56-26%203.jpg" alt="Student artwork submission 30" loading="lazy"></picture></figure>
+                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-06-56-26.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-06-56-26.jpg" alt="Student artwork submission 31" loading="lazy"></picture></figure>
+                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-06-56-27%202.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-06-56-27%202.jpg" alt="Student artwork submission 32" loading="lazy"></picture></figure>
+                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-06-56-27%203.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-06-56-27%203.jpg" alt="Student artwork submission 33" loading="lazy"></picture></figure>
+                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-06-56-27.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-06-56-27.jpg" alt="Student artwork submission 34" loading="lazy"></picture></figure>
+                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-06-56-28.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-06-56-28.jpg" alt="Student artwork submission 35" loading="lazy"></picture></figure>
+                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-06-57-22.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-06-57-22.jpg" alt="Student artwork submission 36" loading="lazy"></picture></figure>
+                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-09-53-22.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-09-53-22.jpg" alt="Student artwork submission 37" loading="lazy"></picture></figure>
                             </div>
-                            <button class="carousel-control carousel-control--next" type="button" aria-label="Scroll to next middle school photos" data-carousel-next>
+                            <button class="carousel-control carousel-control--next" type="button" aria-label="Scroll to next middle school artwork" data-carousel-next>
                                 <span aria-hidden="true">&#10095;</span>
                             </button>
                         </div>
@@ -246,7 +233,7 @@
             </div>
         </section>
 
-        <section class="journey-section journey-section--alt" id="high-school">
+        <section class="journey-section journey-section--alt" id="high-school" data-nathupur-school-section data-school="high-school" hidden>
             <div class="container">
                 <div class="journey-header editorial-header" data-animate>
                     <h2>Government Senior Secondary School, Nathupur &mdash; High School</h2>
@@ -291,104 +278,59 @@
                         </article>
                     </div>
                 </div>
-                <div class="journey-subsection journey-subsection--winners" data-animate>
-                    <h3>Winner Gallery</h3>
-                    <div class="winner-grid" data-animate-group>
-                        <article class="winner-card first-place editorial-layer" data-animate>
-                            <div class="winner-image">
-                                <picture><source srcset="images/1stPlaceHighSchool.webp" type="image/webp"><img src="images/1stPlaceHighSchool.jpeg" alt="Artwork from the first-place high school winner" loading="lazy"></picture>
-                            </div>
-                            <h4>1st Place</h4>
-                        </article>
-                        <article class="winner-card second-place editorial-layer" data-animate>
-                            <div class="winner-image">
-                                <picture><source srcset="images/2ndPlaceHighSchool.webp" type="image/webp"><img src="images/2ndPlaceHighSchool.jpeg" alt="Artwork from the second-place high school winner" loading="lazy"></picture>
-                            </div>
-                            <h4>2nd Place</h4>
-                        </article>
-                        <article class="winner-card third-place editorial-layer" data-animate>
-                            <div class="winner-image">
-                                <picture><source srcset="images/3rdPlaceHighSchool.webp" type="image/webp"><img src="images/3rdPlaceHighSchool.jpeg" alt="Artwork from the third-place high school winner" loading="lazy"></picture>
-                            </div>
-                            <h4>3rd Place</h4>
-                        </article>
-                        <article class="winner-card honorable-mention editorial-layer" data-animate>
-                            <div class="winner-image">
-                                <picture><source srcset="images/1stHonorableMentionHighSchool.webp" type="image/webp"><img src="images/1stHonorableMentionHighSchool.jpeg" alt="Artwork from the honorable mention high school artist" loading="lazy"></picture>
-                            </div>
-                            <h4>Honorable Mention 1</h4>
-                        </article>
-                        <article class="winner-card honorable-mention editorial-layer" data-animate>
-                            <div class="winner-image">
-                                <picture><source srcset="images/2ndHonorableMentionHighSchool.webp" type="image/webp"><img src="images/2ndHonorableMentionHighSchool.jpeg" alt="Artwork from the second honorable mention high school artist" loading="lazy"></picture>
-                            </div>
-                            <h4>Honorable Mention 2</h4>
-                        </article>
-                        <article class="winner-card honorable-mention editorial-layer" data-animate>
-                            <div class="winner-image">
-                                <picture><source srcset="images/3rdHonorableMentionHighSchool.webp" type="image/webp"><img src="images/3rdHonorableMentionHighSchool.jpeg" alt="Artwork from the third honorable mention high school artist" loading="lazy"></picture>
-                            </div>
-                            <h4>Honorable Mention 3</h4>
-                        </article>
-                    </div>
+                <div class="journey-subsection school-artwork-gallery" data-animate>
                     <div class="photo-gallery" data-animate>
                         <h4>Photo Gallery</h4>
                         <div class="photo-carousel" data-carousel>
-                            <button class="carousel-control carousel-control--prev" type="button" aria-label="Scroll to previous high school photos" data-carousel-prev>
+                            <button class="carousel-control carousel-control--prev" type="button" aria-label="Scroll to previous high school artwork" data-carousel-prev>
                                 <span aria-hidden="true">&#10094;</span>
                             </button>
-                            <div class="carousel-track" data-carousel-track tabindex="0" aria-label="High school competition photo gallery">
-                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-09-53-23%202.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-09-53-23%202.jpg" alt="Competition photo 1 from Nathupur high school event" loading="lazy"></picture></figure>
-                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-09-53-23.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-09-53-23.jpg" alt="Competition photo 2 from Nathupur high school event" loading="lazy"></picture></figure>
-                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-09-55-20%202.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-09-55-20%202.jpg" alt="Competition photo 3 from Nathupur high school event" loading="lazy"></picture></figure>
-                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-09-55-20.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-09-55-20.jpg" alt="Competition photo 4 from Nathupur high school event" loading="lazy"></picture></figure>
-                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-09-55-21%202.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-09-55-21%202.jpg" alt="Competition photo 5 from Nathupur high school event" loading="lazy"></picture></figure>
-                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-09-55-21%203.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-09-55-21%203.jpg" alt="Competition photo 6 from Nathupur high school event" loading="lazy"></picture></figure>
-                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-09-55-21.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-09-55-21.jpg" alt="Competition photo 7 from Nathupur high school event" loading="lazy"></picture></figure>
-                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-09-55-32%202.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-09-55-32%202.jpg" alt="Competition photo 8 from Nathupur high school event" loading="lazy"></picture></figure>
-                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-09-55-32.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-09-55-32.jpg" alt="Competition photo 9 from Nathupur high school event" loading="lazy"></picture></figure>
-                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-09-55-33%202.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-09-55-33%202.jpg" alt="Competition photo 10 from Nathupur high school event" loading="lazy"></picture></figure>
-                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-09-55-33%203.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-09-55-33%203.jpg" alt="Competition photo 11 from Nathupur high school event" loading="lazy"></picture></figure>
-                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-09-55-33.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-09-55-33.jpg" alt="Competition photo 12 from Nathupur high school event" loading="lazy"></picture></figure>
-                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-09-55-34%202.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-09-55-34%202.jpg" alt="Competition photo 13 from Nathupur high school event" loading="lazy"></picture></figure>
-                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-09-55-34.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-09-55-34.jpg" alt="Competition photo 14 from Nathupur high school event" loading="lazy"></picture></figure>
-                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-09-55-35%202.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-09-55-35%202.jpg" alt="Competition photo 15 from Nathupur high school event" loading="lazy"></picture></figure>
-                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-09-55-35%203.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-09-55-35%203.jpg" alt="Competition photo 16 from Nathupur high school event" loading="lazy"></picture></figure>
-                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-09-55-35.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-09-55-35.jpg" alt="Competition photo 17 from Nathupur high school event" loading="lazy"></picture></figure>
-                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-09-55-36%202.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-09-55-36%202.jpg" alt="Competition photo 18 from Nathupur high school event" loading="lazy"></picture></figure>
-                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-09-55-36%203.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-09-55-36%203.jpg" alt="Competition photo 19 from Nathupur high school event" loading="lazy"></picture></figure>
-                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-09-55-36.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-09-55-36.jpg" alt="Competition photo 20 from Nathupur high school event" loading="lazy"></picture></figure>
-                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-09-55-37%202.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-09-55-37%202.jpg" alt="Competition photo 21 from Nathupur high school event" loading="lazy"></picture></figure>
-                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-09-55-37%203.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-09-55-37%203.jpg" alt="Competition photo 22 from Nathupur high school event" loading="lazy"></picture></figure>
-                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-09-55-37.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-09-55-37.jpg" alt="Competition photo 23 from Nathupur high school event" loading="lazy"></picture></figure>
-                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-09-55-38%203.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-09-55-38%203.jpg" alt="Competition photo 24 from Nathupur high school event" loading="lazy"></picture></figure>
-                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-09-55-39%202.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-09-55-39%202.jpg" alt="Competition photo 25 from Nathupur high school event" loading="lazy"></picture></figure>
-                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-09-55-39.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-09-55-39.jpg" alt="Competition photo 26 from Nathupur high school event" loading="lazy"></picture></figure>
-                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-09-55-40%202.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-09-55-40%202.jpg" alt="Competition photo 27 from Nathupur high school event" loading="lazy"></picture></figure>
-                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-09-55-40%203.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-09-55-40%203.jpg" alt="Competition photo 28 from Nathupur high school event" loading="lazy"></picture></figure>
-                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-09-55-40.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-09-55-40.jpg" alt="Competition photo 29 from Nathupur high school event" loading="lazy"></picture></figure>
-                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-10-12-31.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-10-12-31.jpg" alt="Competition photo 30 from Nathupur high school event" loading="lazy"></picture></figure>
-                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-10-43-01.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-10-43-01.jpg" alt="Competition photo 31 from Nathupur high school event" loading="lazy"></picture></figure>
-                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-11-47-13.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-11-47-13.jpg" alt="Competition photo 32 from Nathupur high school event" loading="lazy"></picture></figure>
-                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-11-47-14%202.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-11-47-14%202.jpg" alt="Competition photo 33 from Nathupur high school event" loading="lazy"></picture></figure>
-                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-11-47-14.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-11-47-14.jpg" alt="Competition photo 34 from Nathupur high school event" loading="lazy"></picture></figure>
-                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-11-47-15.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-11-47-15.jpg" alt="Competition photo 35 from Nathupur high school event" loading="lazy"></picture></figure>
-                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-12-34-54.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-12-34-54.jpg" alt="Competition photo 36 from Nathupur high school event" loading="lazy"></picture></figure>
-                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-12-35-11.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-12-35-11.jpg" alt="Competition photo 37 from Nathupur high school event" loading="lazy"></picture></figure>
+                            <div class="carousel-track" data-carousel-track tabindex="0" aria-label="High school student artwork gallery">
+                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-09-53-23%202.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-09-53-23%202.jpg" alt="Student artwork submission 1" loading="lazy"></picture></figure>
+                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-09-53-23.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-09-53-23.jpg" alt="Student artwork submission 2" loading="lazy"></picture></figure>
+                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-09-55-20%202.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-09-55-20%202.jpg" alt="Student artwork submission 3" loading="lazy"></picture></figure>
+                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-09-55-20.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-09-55-20.jpg" alt="Student artwork submission 4" loading="lazy"></picture></figure>
+                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-09-55-21%202.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-09-55-21%202.jpg" alt="Student artwork submission 5" loading="lazy"></picture></figure>
+                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-09-55-21%203.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-09-55-21%203.jpg" alt="Student artwork submission 6" loading="lazy"></picture></figure>
+                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-09-55-21.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-09-55-21.jpg" alt="Student artwork submission 7" loading="lazy"></picture></figure>
+                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-09-55-32%202.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-09-55-32%202.jpg" alt="Student artwork submission 8" loading="lazy"></picture></figure>
+                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-09-55-32.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-09-55-32.jpg" alt="Student artwork submission 9" loading="lazy"></picture></figure>
+                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-09-55-33%202.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-09-55-33%202.jpg" alt="Student artwork submission 10" loading="lazy"></picture></figure>
+                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-09-55-33%203.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-09-55-33%203.jpg" alt="Student artwork submission 11" loading="lazy"></picture></figure>
+                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-09-55-33.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-09-55-33.jpg" alt="Student artwork submission 12" loading="lazy"></picture></figure>
+                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-09-55-34%202.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-09-55-34%202.jpg" alt="Student artwork submission 13" loading="lazy"></picture></figure>
+                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-09-55-34.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-09-55-34.jpg" alt="Student artwork submission 14" loading="lazy"></picture></figure>
+                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-09-55-35%202.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-09-55-35%202.jpg" alt="Student artwork submission 15" loading="lazy"></picture></figure>
+                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-09-55-35%203.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-09-55-35%203.jpg" alt="Student artwork submission 16" loading="lazy"></picture></figure>
+                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-09-55-35.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-09-55-35.jpg" alt="Student artwork submission 17" loading="lazy"></picture></figure>
+                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-09-55-36%202.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-09-55-36%202.jpg" alt="Student artwork submission 18" loading="lazy"></picture></figure>
+                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-09-55-36%203.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-09-55-36%203.jpg" alt="Student artwork submission 19" loading="lazy"></picture></figure>
+                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-09-55-36.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-09-55-36.jpg" alt="Student artwork submission 20" loading="lazy"></picture></figure>
+                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-09-55-37%202.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-09-55-37%202.jpg" alt="Student artwork submission 21" loading="lazy"></picture></figure>
+                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-09-55-37%203.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-09-55-37%203.jpg" alt="Student artwork submission 22" loading="lazy"></picture></figure>
+                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-09-55-37.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-09-55-37.jpg" alt="Student artwork submission 23" loading="lazy"></picture></figure>
+                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-09-55-38%203.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-09-55-38%203.jpg" alt="Student artwork submission 24" loading="lazy"></picture></figure>
+                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-09-55-39%202.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-09-55-39%202.jpg" alt="Student artwork submission 25" loading="lazy"></picture></figure>
+                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-09-55-39.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-09-55-39.jpg" alt="Student artwork submission 26" loading="lazy"></picture></figure>
+                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-09-55-40%202.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-09-55-40%202.jpg" alt="Student artwork submission 27" loading="lazy"></picture></figure>
+                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-09-55-40%203.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-09-55-40%203.jpg" alt="Student artwork submission 28" loading="lazy"></picture></figure>
+                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-09-55-40.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-09-55-40.jpg" alt="Student artwork submission 29" loading="lazy"></picture></figure>
+                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-10-12-31.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-10-12-31.jpg" alt="Student artwork submission 30" loading="lazy"></picture></figure>
+                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-10-43-01.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-10-43-01.jpg" alt="Student artwork submission 31" loading="lazy"></picture></figure>
+                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-11-47-13.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-11-47-13.jpg" alt="Student artwork submission 32" loading="lazy"></picture></figure>
+                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-11-47-14%202.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-11-47-14%202.jpg" alt="Student artwork submission 33" loading="lazy"></picture></figure>
+                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-11-47-14.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-11-47-14.jpg" alt="Student artwork submission 34" loading="lazy"></picture></figure>
+                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-11-47-15.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-11-47-15.jpg" alt="Student artwork submission 35" loading="lazy"></picture></figure>
+                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-12-34-54.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-12-34-54.jpg" alt="Student artwork submission 36" loading="lazy"></picture></figure>
+                                <figure class="carousel-item archival-card"><picture><source srcset="images/compnathupur/PHOTO-2025-09-24-12-35-11.webp" type="image/webp"><img src="images/compnathupur/PHOTO-2025-09-24-12-35-11.jpg" alt="Student artwork submission 37" loading="lazy"></picture></figure>
                             </div>
-                            <button class="carousel-control carousel-control--next" type="button" aria-label="Scroll to next high school photos" data-carousel-next>
+                            <button class="carousel-control carousel-control--next" type="button" aria-label="Scroll to next high school artwork" data-carousel-next>
                                 <span aria-hidden="true">&#10095;</span>
                             </button>
                         </div>
                     </div>
                 </div>
-                <div class="journey-callout" data-animate>
-                    <p>Help us continue this journey by supporting classroom resources and celebrating student achievements.</p>
-                    <div class="journey-actions">
-                        <a href="support.html" class="cta-button">Support Us</a>
-                        <a href="competition.html" class="secondary-button">Explore the Competition</a>
-                    </div>
-                </div>
+
             </div>
         </section>
     </main>
@@ -455,18 +397,10 @@
             </div>
         </div>
     </footer>
-
-    <script src="js/main.js?v=20260601-la-gallery"></script>
+    <script src="js/main.js?v=20260607-refactor"></script>
     <script src="js/privacy-notice.js"></script>
+    <script src="js/analytics-consent.js"></script>
     <script src="js/clarity-helper.js"></script>
-
-    <!-- Microsoft Clarity Tracking -->
-    <script type="text/javascript">
-        (function(c,l,a,r,i,t,y){
-            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-        })(window, document, "clarity", "script", "scsvrz0zyk");
-    </script>
+    <script src="js/nathupur-school.js?v=20260607-search-counts"></script>
 </body>
 </html>

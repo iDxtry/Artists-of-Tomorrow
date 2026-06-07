@@ -18,18 +18,10 @@
     <link rel="icon" href="images/logo-favicon.png" type="image/png">
 
     <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css?v=20260607-refactor">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Newsreader:ital,wght@0,400;0,600;1,400&family=Playfair+Display:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap">
-
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-K8P4HJ9KY3"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-K8P4HJ9KY3');
-    </script>
 </head>
 <body>
     <header class="lot-site-header">
@@ -64,14 +56,15 @@
                         <button class="submenu-toggle active" type="button" aria-expanded="false">Our Journey <span class="submenu-icon" aria-hidden="true"></span></button>
                         <ul class="submenu">
                             <li><a href="our-journey.html">Global Map</a></li>
-                            <li><a href="nathupur-india.html">Nathupur India</a></li>
+                            <li><a href="nathupur-india.html">India Schools</a></li>
                             <li><a href="latin-america-school.html" class="active" aria-current="page">Latin America Schools</a></li>
                         </ul>
                     </li>
+                    <li><a href="competition.html">Competition</a></li>
                     <li class="has-submenu">
-                        <button class="submenu-toggle" type="button" aria-expanded="false">Competition <span class="submenu-icon" aria-hidden="true"></span></button>
+                        <button class="submenu-toggle" type="button" aria-expanded="false">Artwork Gallery <span class="submenu-icon" aria-hidden="true"></span></button>
                         <ul class="submenu">
-                            <li><a href="competition.html">India Competition Details</a></li>
+                            <li><a href="india-competition-gallery.html">India Gallery</a></li>
                             <li><a href="latin-america-competition.html">Latin America Gallery</a></li>
                         </ul>
                     </li>
@@ -105,8 +98,8 @@
                         <h3>School Details</h3>
                         <ul class="school-profile-list">
                             <li><strong>Country:</strong> <span data-school-country></span></li>
-                            <li><strong>Region:</strong> Latin America</li>
-                            <li><strong>Status:</strong> Partner school</li>
+                            <li><strong>School:</strong> <span data-school-name></span></li>
+                            <li><strong>Division:</strong> <span data-school-division>Loading age ranges.</span></li>
                         </ul>
                     </article>
                     <article class="journey-card editorial-layer" data-animate>
@@ -117,6 +110,37 @@
                         <h3>Gallery Status</h3>
                         <p data-school-gallery-status>Loading this school's artwork gallery.</p>
                     </article>
+                </div>
+
+                <div class="journey-subsection journey-subsection--team" data-animate>
+                    <h3>Competition Team</h3>
+                    <p class="journey-subsection-lead">Competition organizer and judge details will be added soon for this partner school.</p>
+                    <div class="team-grid" data-animate-group>
+                        <article class="team-card coordinator editorial-layer team-card--placeholder" data-animate>
+                            <div class="team-photo team-photo--placeholder" aria-hidden="true"></div>
+                            <h4>Coming Soon</h4>
+                            <p class="team-role">Competition Organizer</p>
+                            <p>Organizer details will be added when the school team is confirmed.</p>
+                        </article>
+                        <article class="team-card judge editorial-layer team-card--placeholder" data-animate>
+                            <div class="team-photo team-photo--placeholder" aria-hidden="true"></div>
+                            <h4>Coming Soon</h4>
+                            <p class="team-role">Judge</p>
+                            <p>Judge details will be added when the school team is confirmed.</p>
+                        </article>
+                        <article class="team-card judge editorial-layer team-card--placeholder" data-animate>
+                            <div class="team-photo team-photo--placeholder" aria-hidden="true"></div>
+                            <h4>Coming Soon</h4>
+                            <p class="team-role">Judge</p>
+                            <p>Judge details will be added when the school team is confirmed.</p>
+                        </article>
+                        <article class="team-card judge editorial-layer team-card--placeholder" data-animate>
+                            <div class="team-photo team-photo--placeholder" aria-hidden="true"></div>
+                            <h4>Coming Soon</h4>
+                            <p class="team-role">Judge</p>
+                            <p>Judge details will be added when the school team is confirmed.</p>
+                        </article>
+                    </div>
                 </div>
 
                 <div class="journey-subsection school-artwork-gallery" data-school-gallery hidden>
@@ -156,9 +180,14 @@
             <div class="container">
                 <div class="journey-header editorial-header" data-animate>
                     <h2>Select a Latin America School</h2>
-                    <p>Use the map on Our Journey or choose a partner school below.</p>
+                    <p>Use the map on Our Journey, search by school or country, or choose a partner school below.</p>
+                </div>
+                <div class="school-search" data-animate>
+                    <label for="latin-america-school-search">Search Latin America schools</label>
+                    <input id="latin-america-school-search" type="search" placeholder="Search by school or country" data-school-search>
                 </div>
                 <div class="school-directory-grid" data-school-directory data-animate-group></div>
+                <p class="school-search-empty" data-school-search-empty hidden>No Latin America schools match your search.</p>
                 <div class="journey-callout" data-animate>
                     <p>The shared Latin America competition gallery is available separately from the school profiles.</p>
                     <div class="journey-actions">
@@ -233,19 +262,13 @@
         </div>
     </footer>
 
-    <script src="js/main.js?v=20260601-la-gallery"></script>
+    <script src="js/main.js?v=20260607-refactor"></script>
     <script src="js/privacy-notice.js"></script>
+    <script src="js/analytics-consent.js"></script>
     <script src="js/clarity-helper.js"></script>
     <script src="js/school-data.js"></script>
+    <script src="js/artwork-count-data.js?v=20260607-counts"></script>
     <script src="js/latin-america-gallery-data.js"></script>
-    <script src="js/latin-america-school.js"></script>
-
-    <script type="text/javascript">
-        (function(c,l,a,r,i,t,y){
-            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-        })(window, document, "clarity", "script", "scsvrz0zyk");
-    </script>
+    <script src="js/latin-america-school.js?v=20260607-search-counts"></script>
 </body>
 </html>

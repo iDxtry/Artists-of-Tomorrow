@@ -154,8 +154,8 @@
   // ── Active pins — India (2) ────────────────────────────────────────────────
   // Slight lat/lng offset so icons don't fully stack (same campus)
   var activeSites = [
-    { name: 'Government Senior Secondary School, Nathupur \u2014 Middle School', lat: 28.8451, lng: 77.1564, href: 'nathupur-india.html#middle-school', img: 'images/1stPlaceMiddleSchool.jpg' },
-    { name: 'Government Senior Secondary School, Nathupur \u2014 High School', lat: 28.8458, lng: 77.1572, href: 'nathupur-india.html#high-school', img: 'images/1stPlaceHighSchool.jpeg' }
+    { name: 'Government Senior Secondary School, Nathupur \u2014 Middle School', lat: 28.8451, lng: 77.1564, href: 'nathupur-india.html?school=middle-school', img: 'images/1stPlaceMiddleSchool.jpg' },
+    { name: 'Government Senior Secondary School, Nathupur \u2014 High School', lat: 28.8458, lng: 77.1572, href: 'nathupur-india.html?school=high-school', img: 'images/1stPlaceHighSchool.jpeg' }
   ];
 
   activeSites.forEach(function (s) {
