@@ -1402,6 +1402,14 @@ nav ul li.nav-lot-item>a.nav-lot-link .lot-nav-badge {
     font-family: var(--font-heading);
 }
 
+.prize-amounts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    align-items: flex-start;
+    width: 100%;
+}
+
 .prize-amount {
     font-size: 2rem;
     font-weight: 700;
