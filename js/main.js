@@ -229,6 +229,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Move focus to first nav item when opening
                 const firstNavItem = mainNav.querySelector('a');
                 if (firstNavItem) firstNavItem.focus();
+                window.setTimeout(openActiveSubmenu, 0);
             } else {
                 // Return focus to menu button when closing
                 navToggle.focus();
@@ -299,7 +300,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const clickInsideNav = event.target.closest('nav');
             const clickOnToggle = event.target.closest('.nav-toggle');
 
-            if (!event.target.closest('.has-submenu')) {
+            if (!event.target.closest('.has-submenu') && !clickOnToggle) {
                 closeAllSubmenus();
             }
 
@@ -707,7 +708,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const alt = image ? image.getAttribute('alt') || '' : '';
             const caption = item.dataset.caption || (image ? image.dataset.caption || '' : '');
             return { element: item, image, src, alt, caption };
-        });
+        }).filter(({ src }) => Boolean(src));
 
         updateTrackPadding();
         updateButtons();
