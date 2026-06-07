@@ -30,6 +30,14 @@
       .replace(/'/g, '&#39;');
   }
 
+  function resolveImagePath(src) {
+    var cdnBase = window.AOT_CDN_BASE_URL || '';
+    if (cdnBase && src && src.indexOf('images/latin-america/') === 0) {
+      return cdnBase.replace(/\/$/, '') + '/' + src;
+    }
+    return src;
+  }
+
   function placeholderCard(title, className) {
     return '<article class="winner-card ' + className + ' editorial-layer" data-animate>' +
       '<div class="winner-image"><div class="image-placeholder">Coming Soon</div></div>' +
@@ -95,7 +103,7 @@
 
   track.innerHTML = photos.map(function (entry) {
     return '<figure class="carousel-item archival-card" data-caption="' + escapeHTML(entry.caption) + '">' +
-      '<img src="' + escapeHTML(entry.src) + '" alt="' + escapeHTML(entry.alt) + '" loading="lazy">' +
+      '<img src="' + escapeHTML(resolveImagePath(entry.src)) + '" alt="' + escapeHTML(entry.alt) + '" loading="lazy">' +
       '</figure>';
   }).join('');
 })();

@@ -1,3 +1,7 @@
+// Central configuration for loading Git-ignored Latin America images from a Cloudflare CDN.
+// Set window.AOT_CDN_BASE_URL to your Cloudflare Pages/R2 domain (e.g., 'https://aot-images.pages.dev/').
+window.AOT_CDN_BASE_URL = window.AOT_CDN_BASE_URL || 'https://aot-images.pages.dev/';
+
 document.addEventListener('DOMContentLoaded', function() {
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 

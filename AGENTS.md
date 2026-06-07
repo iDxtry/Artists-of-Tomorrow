@@ -129,6 +129,12 @@ Images live in `images/` with subdirectories for `compnathupur/` (event photos u
 - **Favicon:** `images/logo-favicon.png` (64×64 PNG, ~12KB) — linked via `<link rel="icon">` on every page. Do not revert this to the SVG; the SVG is 2.5MB and would be fetched separately for every browser tab.
 - **Portraits:** JPEG format. `mishika.jpg` (not `.png`).
 
+**Git-ignored Latin America Images & Cloudflare CDN:**
+* The `images/latin-america/` folder contains 1,000+ files and is intentionally git-ignored.
+* In production, these images are hosted on a Cloudflare CDN (e.g. Cloudflare Pages or Cloudflare R2).
+* All references to `images/latin-america/...` in `js/latin-america-gallery-data.js` are resolved dynamically through the `resolveImagePath` function.
+* The CDN base URL is configured globally via `window.AOT_CDN_BASE_URL` in [js/main.js](file:///Users/anishbatra/Downloads/Artists-of-Tomorrow/js/main.js). If this configuration variable is empty, it falls back to relative local paths (for local development).
+
 **Adding new images:** compress before committing. Use macOS `sips`:
 
 ```bash
