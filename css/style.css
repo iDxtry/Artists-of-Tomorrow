@@ -1486,6 +1486,54 @@ nav ul li.nav-lot-item>a.nav-lot-link .lot-nav-badge {
     line-height: 1.7;
 }
 
+
+/* Error pages */
+.error-page-section {
+    padding: 72px 0 88px;
+    background: linear-gradient(135deg, rgba(255, 248, 245, 0.92), rgba(255, 255, 255, 0.96));
+}
+
+.error-page-card {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 44px;
+    border-radius: 28px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(45, 55, 72, 0.08);
+    box-shadow: var(--box-shadow);
+    text-align: center;
+}
+
+.error-page-kicker {
+    margin: 0 0 12px;
+    color: var(--salmon-dark);
+    font-family: var(--font-heading);
+    font-size: clamp(3.5rem, 10vw, 6.5rem);
+    font-weight: 700;
+    line-height: 1;
+}
+
+.error-page-card h2 {
+    margin-bottom: 16px;
+    color: var(--dark-color);
+}
+
+.error-page-card p:not(.error-page-kicker) {
+    max-width: 620px;
+    margin-right: auto;
+    margin-left: auto;
+    color: var(--text-muted);
+    line-height: 1.7;
+}
+
+.error-page-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 28px;
+}
+
 /* Footer */
 footer {
     background-color: var(--accent-color);

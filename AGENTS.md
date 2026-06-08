@@ -21,6 +21,10 @@ Kill the server when done: `kill %1`
 
 Merging to `main` automatically deploys to **Azure Static Web Apps** via `.github/workflows/azure-static-web-apps-kind-glacier-0be94221e.yml`. The workflow sets `skip_app_build: true` because there is no build step — files are deployed as-is from the repo root.
 
+## Editor Time Tracking
+
+The repo root includes `.wakatime-project` with the single-line project name `Artists-of-Tomorrow`. Keep this file tracked so WakaTime can identify the project even when an editor or extension does not infer the Git repository name correctly.
+
 ## CSS Architecture
 
 There are two CSS files loaded in order on every page:
@@ -109,6 +113,12 @@ Page-specific headers use `.page-header > h1`; the homepage uses `.hero` with `.
 ## Content Security Policy
 
 The CSP is set globally in `staticwebapp.config.json` (not in HTML meta tags). Any new third-party scripts, styles, or frames must be explicitly allow-listed there before they will load in production.
+
+## Error Handling & Sitemap
+
+`staticwebapp.config.json` rewrites Azure Static Web Apps 404 responses to `404.html`. Keep that file present, `noindex`, and aligned with the standard AOT header/footer conventions. The 404 page uses `.error-page-section`, `.error-page-card`, `.error-page-kicker`, and `.error-page-actions` styles in `css/style.css`.
+
+`sitemap.xml` lists root-level public HTML routes only (for example `/about.html`, not `/pages/about.html`) and intentionally excludes `404.html`. Update it when adding, removing, or renaming public pages.
 
 ## Caching
 

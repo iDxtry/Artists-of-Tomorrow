@@ -24,7 +24,8 @@ There is no install step, package manager, bundler, or generated build output re
 | `js/` | Browser scripts for shared interactions, privacy consent, analytics, maps, galleries, and page-specific rendering. |
 | `images/` | Logos, portraits, artwork, social icons, and gallery assets. |
 | `scripts/` | Maintenance scripts, including Latin America gallery data generation. |
-| `staticwebapp.config.json` | Azure Static Web Apps routing, CSP, and cache headers. |
+| `staticwebapp.config.json` | Azure Static Web Apps routing, 404 rewrite, CSP, and cache headers. |
+| `sitemap.xml` | Public root-level routes for search engines. |
 | `.github/workflows/` | Azure Static Web Apps deployment workflow. |
 
 ## Deployment
