@@ -21,6 +21,10 @@ Kill the server when done: `kill %1`
 
 Merging to `main` automatically deploys to **Azure Static Web Apps** via `.github/workflows/azure-static-web-apps-kind-glacier-0be94221e.yml`. The workflow sets `skip_app_build: true` because there is no build step — files are deployed as-is from the repo root.
 
+## Editor Time Tracking
+
+The repo root includes `.wakatime-project` with the single-line project name `Artists-of-Tomorrow`. Keep this file tracked so WakaTime can identify the project even when an editor or extension does not infer the Git repository name correctly.
+
 ## CSS Architecture
 
 There are two CSS files loaded in order on every page:
@@ -110,6 +114,12 @@ Page-specific headers use `.page-header > h1`; the homepage uses `.hero` with `.
 
 The CSP is set globally in `staticwebapp.config.json` (not in HTML meta tags). Any new third-party scripts, styles, or frames must be explicitly allow-listed there before they will load in production.
 
+## Error Handling & Sitemap
+
+`staticwebapp.config.json` rewrites Azure Static Web Apps 404 responses to `404.html`. Keep that file present, `noindex`, and aligned with the standard AOT header/footer conventions. The 404 page uses `.error-page-section`, `.error-page-card`, `.error-page-kicker`, and `.error-page-actions` styles in `css/style.css`.
+
+`sitemap.xml` lists root-level public HTML routes only (for example `/about.html`, not `/pages/about.html`) and intentionally excludes `404.html`. Update it when adding, removing, or renaming public pages.
+
 ## Caching
 
 `staticwebapp.config.json` sets `Cache-Control` headers via the `routes` array:
@@ -128,7 +138,13 @@ Images live in `images/` with subdirectories for `compnathupur/` (event photos u
 
 - **Logo:** `images/logo.svg` — used in the header `<img>` and footer on every page.
 - **Favicon:** `images/logo-favicon.png` (64×64 PNG, ~12KB) — linked via `<link rel="icon">` on every page. Do not revert this to the SVG; the SVG is 2.5MB and would be fetched separately for every browser tab.
-- **Portraits:** JPEG format. `mishika.jpg` (not `.png`).
+- **Portraits:** WebP format. `mishika.webp` (not `.jpg` or `.png`).
+
+**Git-ignored Latin America Images & Cloudflare CDN:**
+* The `images/latin-america/` folder contains 1,000+ files and is intentionally git-ignored.
+* In production, these images are hosted on a Cloudflare CDN (e.g. Cloudflare Pages or Cloudflare R2).
+* All references to `images/latin-america/...` in `js/latin-america-gallery-data.js` are resolved dynamically through the `resolveImagePath` function.
+* The CDN base URL is configured globally via `window.AOT_CDN_BASE_URL` in [js/main.js](file:///Users/anishbatra/Downloads/Artists-of-Tomorrow/js/main.js). If this configuration variable is empty, it falls back to relative local paths (for local development).
 
 **Adding new images:** compress before committing. Use macOS `sips`:
 
@@ -154,3 +170,16 @@ All images in `images/` are served with a 1-year browser cache. See the [Caching
 - Speech Categories shows 3 cards only: Impromptu Speaking, Prepared Speech, Table Topics. "Professional Speaking" and "Structured Debate" were removed.
 - Speech grid uses `grid-template-columns: repeat(3, minmax(0, 320px)); justify-content: center` to keep 3 cards centered.
 - "Get in Touch" CTA links to the Google Form (`https://docs.google.com/forms/u/3/d/1w3z-RkzNxWh7RVfrivAXPrXs49yjSOq4Xjlmeb5bdyM/edit`), opens in a new tab.
+
+## School Profiles & Galleries
+
+### Asia Partner School Profile (`nathupur-asia.html`)
+- Structured with two divisions: Middle School and High School.
+- Does not contain a local winner grid. All winner artwork is showcased in the shared `asia-competition-gallery.html`.
+- Displays student artwork submissions using a photo carousel (37 submissions total per division).
+- The dynamic subheader reads `37 student submissions.` (matching the Latin America format).
+- Accessible controls and tracks have labels updated from "photo gallery" to "student artwork gallery".
+
+### Latin America Partner School Profile (`latin-america-school.html`)
+- Displays age range divisions dynamically (e.g. `Ages 8-11, 12-15`, omitting categories with 0 submissions).
+- The count banner displays student submission count dynamically (e.g. `6 student submissions.`).

@@ -1021,23 +1021,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Preload animations
-    const preloadAnimations = function() {
-        // Add a class to body when page is fully loaded
-        window.addEventListener('load', function() {
-            document.body.classList.add('page-loaded');
-            
-            // Animate main sections with a staggered delay
-            const sections = document.querySelectorAll('section');
-            sections.forEach((section, index) => {
-                setTimeout(() => {
-                    section.classList.add('fade-in');
-                }, index * 200);
-            });
-        });
-    };
-    
-    preloadAnimations();
+
     
     // Fix for mobile prize display - ensure text is visible
     const fixMobilePrizes = function() {

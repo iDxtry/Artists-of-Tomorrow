@@ -138,7 +138,7 @@ Images live in `images/` with subdirectories for `compnathupur/` (event photos u
 
 - **Logo:** `images/logo.svg` — used in the header `<img>` and footer on every page.
 - **Favicon:** `images/logo-favicon.png` (64×64 PNG, ~12KB) — linked via `<link rel="icon">` on every page. Do not revert this to the SVG; the SVG is 2.5MB and would be fetched separately for every browser tab.
-- **Portraits:** JPEG format. `mishika.jpg` (not `.png`).
+- **Portraits:** WebP format. `mishika.webp` (not `.jpg` or `.png`).
 
 **Git-ignored Latin America Images & Cloudflare CDN:**
 * The `images/latin-america/` folder contains 1,000+ files and is intentionally git-ignored.
