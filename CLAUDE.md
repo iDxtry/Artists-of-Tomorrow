@@ -88,7 +88,7 @@ The `leaders-of-tomorrow.html` footer uses `.lot-site-footer` > `.lot-footer-gri
 
 ## HTML Page Conventions
 
-Every page links stylesheets in this order and the three JS files at the bottom of `<body>`:
+Every page links stylesheets in this order and the shared JS files at the bottom of `<body>`:
 
 ```html
 <link rel="stylesheet" href="css/normalize.css">
@@ -96,6 +96,7 @@ Every page links stylesheets in this order and the three JS files at the bottom 
 ...
 <script src="js/main.js"></script>
 <script src="js/privacy-notice.js"></script>
+<script src="js/analytics-consent.js"></script>
 <script src="js/clarity-helper.js"></script>
 ```
 

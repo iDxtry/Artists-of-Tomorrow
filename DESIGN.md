@@ -189,4 +189,4 @@ White or cream background, light border, 10–14px border-radius. On focus: Burn
 - **Scroll reveal system:** `[data-animate]` on any element triggers a fade+rise on viewport entry. Wrap siblings in `[data-animate-group]` for automatic stagger via `--reveal-delay`.
 - **Header:** Both brands use `.lot-site-header` markup. AOT gets an animated gradient bar via `::after`; LOT uses `.lot-hero::after` instead.
 - **Logo:** `images/logo.svg` in header (eager-loaded, never lazy). `images/logo-favicon.png` for browser tab.
-- **Script load order (every page):** `main.js` → `privacy-notice.js` → `clarity-helper.js` at bottom of `<body>`.
+- **Script load order (standard pages):** `main.js` → `privacy-notice.js` → `analytics-consent.js` → `clarity-helper.js` at bottom of `<body>`.
