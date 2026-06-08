@@ -33,15 +33,15 @@
   ];
 
   var photos = [
-    { src: 'images/compnathupur/1stPlaceMiddleSchoolDisplay.jpg', webp: 'images/compnathupur/1stPlaceMiddleSchoolDisplay.webp', alt: 'Middle school 1st place recognition photo', caption: 'Middle school recognition' },
-    { src: 'images/compnathupur/2ndPlaceMiddleSchoolDisplay.jpeg', webp: 'images/compnathupur/2ndPlaceMiddleSchoolDisplay.webp', alt: 'Middle school 2nd place recognition photo', caption: 'Middle school recognition' },
-    { src: 'images/compnathupur/3rdPlaceMiddleSchoolDisplay.jpg', webp: 'images/compnathupur/3rdPlaceMiddleSchoolDisplay.webp', alt: 'Middle school 3rd place recognition photo', caption: 'Middle school recognition' },
-    { src: 'images/compnathupur/1stPlaceHighSchoolDisplay.jpeg', webp: 'images/compnathupur/1stPlaceHighSchoolDisplay.webp', alt: 'High school 1st place recognition photo', caption: 'High school recognition' },
-    { src: 'images/compnathupur/2ndPlaceHighSchoolDisplay.jpeg', webp: 'images/compnathupur/2ndPlaceHighSchoolDisplay.webp', alt: 'High school 2nd place recognition photo', caption: 'High school recognition' },
-    { src: 'images/compnathupur/3rdPlaceHighSchoolDisplay.jpeg', webp: 'images/compnathupur/3rdPlaceHighSchoolDisplay.webp', alt: 'High school 3rd place recognition photo', caption: 'High school recognition' },
-    { src: 'images/compnathupur/PHOTO-2025-09-24-06-56-19.jpg', webp: 'images/compnathupur/PHOTO-2025-09-24-06-56-19.webp', alt: 'Asia middle school competition event photo', caption: 'Middle school event photo' },
-    { src: 'images/compnathupur/PHOTO-2025-09-24-09-55-20.jpg', webp: 'images/compnathupur/PHOTO-2025-09-24-09-55-20.webp', alt: 'Asia high school competition event photo', caption: 'High school event photo' },
-    { src: 'images/compnathupur/PHOTO-2025-09-24-11-47-14.jpg', webp: 'images/compnathupur/PHOTO-2025-09-24-11-47-14.webp', alt: 'Asia high school award event photo', caption: 'High school event photo' }
+    { src: 'images/compnathupur/1stPlaceMiddleSchoolDisplay.webp', webp: 'images/compnathupur/1stPlaceMiddleSchoolDisplay.webp', alt: 'Middle school 1st place recognition photo', caption: 'Middle school recognition' },
+    { src: 'images/compnathupur/2ndPlaceMiddleSchoolDisplay.webp', webp: 'images/compnathupur/2ndPlaceMiddleSchoolDisplay.webp', alt: 'Middle school 2nd place recognition photo', caption: 'Middle school recognition' },
+    { src: 'images/compnathupur/3rdPlaceMiddleSchoolDisplay.webp', webp: 'images/compnathupur/3rdPlaceMiddleSchoolDisplay.webp', alt: 'Middle school 3rd place recognition photo', caption: 'Middle school recognition' },
+    { src: 'images/compnathupur/1stPlaceHighSchoolDisplay.webp', webp: 'images/compnathupur/1stPlaceHighSchoolDisplay.webp', alt: 'High school 1st place recognition photo', caption: 'High school recognition' },
+    { src: 'images/compnathupur/2ndPlaceHighSchoolDisplay.webp', webp: 'images/compnathupur/2ndPlaceHighSchoolDisplay.webp', alt: 'High school 2nd place recognition photo', caption: 'High school recognition' },
+    { src: 'images/compnathupur/3rdPlaceHighSchoolDisplay.webp', webp: 'images/compnathupur/3rdPlaceHighSchoolDisplay.webp', alt: 'High school 3rd place recognition photo', caption: 'High school recognition' },
+    { src: 'images/compnathupur/PHOTO-2025-09-24-06-56-19.webp', webp: 'images/compnathupur/PHOTO-2025-09-24-06-56-19.webp', alt: 'Asia middle school competition event photo', caption: 'Middle school event photo' },
+    { src: 'images/compnathupur/PHOTO-2025-09-24-09-55-20.webp', webp: 'images/compnathupur/PHOTO-2025-09-24-09-55-20.webp', alt: 'Asia high school competition event photo', caption: 'High school event photo' },
+    { src: 'images/compnathupur/PHOTO-2025-09-24-11-47-14.webp', webp: 'images/compnathupur/PHOTO-2025-09-24-11-47-14.webp', alt: 'Asia high school award event photo', caption: 'High school event photo' }
   ];
 
   function escapeHTML(value) {
