@@ -4,6 +4,22 @@ window.AOT_CDN_BASE_URL = window.AOT_CDN_BASE_URL || 'https://aot-images.pages.d
 
 document.addEventListener('DOMContentLoaded', function() {
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+    const runInAnimationFrame = (() => {
+        let frame = null;
+
+        return callback => {
+            if (frame) {
+                cancelAnimationFrame(frame);
+            }
+
+            frame = requestAnimationFrame(() => {
+                frame = null;
+                callback();
+            });
+        };
+    })();
 
     const animateGroups = document.querySelectorAll('[data-animate-group]');
     animateGroups.forEach(group => {
@@ -20,12 +36,20 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    const animatedElements = document.querySelectorAll('[data-animate]');
+    const animatedElements = Array.from(document.querySelectorAll('[data-animate]'));
+    const fadeInElements = Array.from(document.querySelectorAll('section, .card, .prize-card, .step, .judge-card, .prize, .contact-method'));
+    fadeInElements.forEach(element => element.classList.add('fade-in'));
+
     if (!reduceMotion && 'IntersectionObserver' in window) {
-        const observer = new IntersectionObserver((entries) => {
+        const revealObserver = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
+                    if (entry.target.hasAttribute('data-animate')) {
+                        entry.target.classList.add('is-visible');
+                    }
+                    if (entry.target.classList.contains('fade-in')) {
+                        entry.target.classList.add('in-view');
+                    }
                     observer.unobserve(entry.target);
                 }
             });
@@ -39,10 +63,17 @@ document.addEventListener('DOMContentLoaded', function() {
                 const delay = Math.min(index * 0.08, 0.4);
                 element.style.setProperty('--reveal-delay', `${delay}s`);
             }
-            observer.observe(element);
+            revealObserver.observe(element);
+        });
+
+        fadeInElements.forEach(element => {
+            if (!element.hasAttribute('data-animate')) {
+                revealObserver.observe(element);
+            }
         });
     } else {
         animatedElements.forEach(element => element.classList.add('is-visible'));
+        fadeInElements.forEach(element => element.classList.add('in-view'));
     }
 
     // Add scroll event for header styling and back-to-top button
@@ -57,11 +88,12 @@ document.addEventListener('DOMContentLoaded', function() {
     let scrollTicking = false;
 
     function updateScrollEffects(scrollPosition) {
-        // Header scroll effect
-        if (scrollPosition > 50) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
+        if (header) {
+            if (scrollPosition > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
         }
 
         // Back to top button visibility
@@ -358,23 +390,12 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Fade-in elements when they enter the viewport
-    const observer = new IntersectionObserver((entries, obs) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('in-view');
-                obs.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('section, .card, .prize-card, .step, .judge-card, .prize, .contact-method').forEach(el => {
-        el.classList.add('fade-in');
-        observer.observe(el);
-    });
-    
     // Add special effects to prizes section
     const enhancePrizes = function() {
+        if (reduceMotion || !canHover) {
+            return;
+        }
+
         const prizeCards = document.querySelectorAll('.prize-card');
         if (prizeCards.length > 0) {
             prizeCards.forEach(card => {
@@ -390,7 +411,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     const rotateY = (centerX - x) / 10;
                     
                     this.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`;
-                });
+                }, { passive: true });
                 
                 card.addEventListener('mouseleave', function() {
                     this.style.transform = '';
@@ -920,9 +941,15 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
 
+        let resizeFrame = null;
         const handleResize = () => {
-            updateTrackPadding();
-            requestAnimationFrame(() => {
+            if (resizeFrame) {
+                cancelAnimationFrame(resizeFrame);
+            }
+
+            resizeFrame = requestAnimationFrame(() => {
+                resizeFrame = null;
+                updateTrackPadding();
                 goToIndex(currentIndex, { behavior: 'auto' });
             });
         };
@@ -981,24 +1008,36 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Add particle effect to buttons
+    // Add pointer-position effects to buttons
     const addButtonEffects = function() {
-        const buttons = document.querySelectorAll('.cta-button, .secondary-button');
-        
-        buttons.forEach(button => {
-            button.addEventListener('mouseenter', function() {
-                this.style.transition = 'all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1)';
-            });
-            
-            button.addEventListener('mousemove', function(e) {
-                const rect = this.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                
-                this.style.setProperty('--x', x + 'px');
-                this.style.setProperty('--y', y + 'px');
-            });
-        });
+        if (reduceMotion || !canHover) {
+            return;
+        }
+
+        const buttonSelector = '.cta-button, .secondary-button';
+
+        document.addEventListener('mouseover', event => {
+            const button = event.target.closest(buttonSelector);
+            if (!button || !document.body.contains(button) || button.contains(event.relatedTarget)) {
+                return;
+            }
+
+            button.style.transition = 'all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1)';
+        }, { passive: true });
+
+        document.addEventListener('mousemove', event => {
+            const button = event.target.closest(buttonSelector);
+            if (!button || !document.body.contains(button)) {
+                return;
+            }
+
+            const rect = button.getBoundingClientRect();
+            const x = event.clientX - rect.left;
+            const y = event.clientY - rect.top;
+
+            button.style.setProperty('--x', x + 'px');
+            button.style.setProperty('--y', y + 'px');
+        }, { passive: true });
     };
     
     addButtonEffects();
@@ -1025,16 +1064,25 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Fix for mobile prize display - ensure text is visible
     const fixMobilePrizes = function() {
+        const prizeAmounts = document.querySelectorAll('.prize-amount');
+
         if (window.innerWidth <= 768) {
-            const prizeAmounts = document.querySelectorAll('.prize-amount');
             prizeAmounts.forEach(amount => {
                 amount.style.width = '100%';
                 amount.style.textAlign = 'left';
                 amount.style.margin = '5px 0';
             });
+        } else {
+            prizeAmounts.forEach(amount => {
+                amount.style.removeProperty('width');
+                amount.style.removeProperty('text-align');
+                amount.style.removeProperty('margin');
+            });
         }
     };
     
     fixMobilePrizes();
-    window.addEventListener('resize', fixMobilePrizes);
+    window.addEventListener('resize', () => {
+        runInAnimationFrame(fixMobilePrizes);
+    });
 });

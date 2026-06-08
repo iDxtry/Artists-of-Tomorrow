@@ -53,14 +53,14 @@ When adding new styles, use `style.css` for all rules — there is no separate o
 
 All interactive behaviour lives in `js/main.js` (single `DOMContentLoaded` listener). Key responsibilities:
 
-- **Scroll-reveal animations** — `IntersectionObserver` adds `.is-visible` to `[data-animate]` elements; stagger delay is set via `--reveal-delay` CSS custom property on `[data-animate-group]` children.
+- **Scroll-reveal animations** — one shared `IntersectionObserver` adds `.is-visible` to `[data-animate]` elements and `.in-view` to `.fade-in` elements; stagger delay is set via `--reveal-delay` CSS custom property on `[data-animate-group]` children.
 - **Header scroll effects** — adds `.scrolled` class to `<header>` on scroll.
 - **Mobile navigation** — hamburger toggle (`#navToggle`) controls `nav.expanded` / `nav.collapsed` classes; submenus use `.has-submenu.open`.
 - **Gallery modal** — opens a lightbox (`#galleryModal`) for journey-page artwork; keyboard and focus-trap logic included.
-- **Prize card tilt** — `mousemove` 3-D CSS transform effect on `.prize-card` elements.
-- **Horizontal scroll carousels** — `scroll-snap` based, with prev/next buttons and resize handling.
+- **Prize card tilt** — `mousemove` 3-D CSS transform effect on `.prize-card` elements, gated to fine-pointer hover devices and skipped for reduced-motion users.
+- **Horizontal scroll carousels** — `scroll-snap` based, with prev/next buttons and requestAnimationFrame-scheduled resize handling.
 - **Form handling** — registration and contact form validation/submission with inline error states.
-- **Button ripple effect** — `addButtonEffects()` injects a ripple span on `.cta-button` / `.secondary-button` mouseenter.
+- **Button pointer effect** — `addButtonEffects()` uses delegated document listeners to update pointer-position CSS variables for `.cta-button` / `.secondary-button`, gated to fine-pointer hover devices and skipped for reduced-motion users.
 
 `js/privacy-notice.js` manages the cookie-consent banner (`.cookie-consent`).  
 `js/clarity-helper.js` wraps Microsoft Clarity event tracking.
