@@ -53,8 +53,17 @@
       .replace(/'/g, '&#39;');
   }
 
+  function sanitizeURL(url) {
+    var sanitized = String(url).trim();
+    var lower = sanitized.toLowerCase();
+    if (lower.indexOf('javascript:') === 0 || lower.indexOf('data:') === 0 || lower.indexOf('vbscript:') === 0) {
+      return 'about:blank';
+    }
+    return escapeHTML(sanitized);
+  }
+
   function picture(entry) {
-    return '<picture><source srcset="' + escapeHTML(entry.webp) + '" type="image/webp"><img src="' + escapeHTML(entry.src) + '" alt="' + escapeHTML(entry.alt) + '" loading="lazy"></picture>';
+    return '<picture><source srcset="' + sanitizeURL(entry.webp) + '" type="image/webp"><img src="' + sanitizeURL(entry.src) + '" alt="' + escapeHTML(entry.alt) + '" loading="lazy"></picture>';
   }
 
   function winnerCard(entry) {

@@ -59,7 +59,6 @@ All interactive behaviour lives in `js/main.js` (single `DOMContentLoaded` liste
 - **Gallery modal** — opens a lightbox (`#galleryModal`) for journey-page artwork; keyboard and focus-trap logic included.
 - **Prize card tilt** — `mousemove` 3-D CSS transform effect on `.prize-card` elements, gated to fine-pointer hover devices and skipped for reduced-motion users.
 - **Horizontal scroll carousels** — `scroll-snap` based, with prev/next buttons and requestAnimationFrame-scheduled resize handling.
-- **Form handling** — registration and contact form validation/submission with inline error states.
 - **Button pointer effect** — `addButtonEffects()` uses delegated document listeners to update pointer-position CSS variables for `.cta-button` / `.secondary-button`, gated to fine-pointer hover devices and skipped for reduced-motion users.
 
 `js/privacy-notice.js` manages the cookie-consent banner (`.cookie-consent`).  

@@ -30,6 +30,15 @@
       .replace(/'/g, '&#39;');
   }
 
+  function sanitizeURL(url) {
+    var sanitized = String(url).trim();
+    var lower = sanitized.toLowerCase();
+    if (lower.indexOf('javascript:') === 0 || lower.indexOf('data:') === 0 || lower.indexOf('vbscript:') === 0) {
+      return 'about:blank';
+    }
+    return escapeHTML(sanitized);
+  }
+
   function resolveImagePath(src) {
     var cdnBase = window.AOT_CDN_BASE_URL || '';
     if (cdnBase && src && src.indexOf('images/latin-america/') === 0) {
@@ -103,7 +112,7 @@
 
   track.innerHTML = photos.map(function (entry) {
     return '<figure class="carousel-item archival-card" data-caption="' + escapeHTML(entry.caption) + '">' +
-      '<img src="' + escapeHTML(resolveImagePath(entry.src)) + '" alt="' + escapeHTML(entry.alt) + '" loading="lazy">' +
+      '<img src="' + sanitizeURL(resolveImagePath(entry.src)) + '" alt="' + escapeHTML(entry.alt) + '" loading="lazy">' +
       '</figure>';
   }).join('');
 })();

@@ -30,6 +30,15 @@
       .replace(/'/g, '&#39;');
   }
 
+  function sanitizeURL(url) {
+    var sanitized = String(url).trim();
+    var lower = sanitized.toLowerCase();
+    if (lower.indexOf('javascript:') === 0 || lower.indexOf('data:') === 0 || lower.indexOf('vbscript:') === 0) {
+      return 'about:blank';
+    }
+    return escapeHTML(sanitized);
+  }
+
   function normalizeText(value) {
     return String(value || '')
       .normalize('NFD')
@@ -77,7 +86,7 @@
 
     track.innerHTML = artwork.map(function (entry) {
       return '<figure class="carousel-item archival-card" data-caption="' + escapeHTML(entry.caption) + '">' +
-        '<img src="' + escapeHTML(resolveImagePath(entry.src)) + '" alt="' + escapeHTML(entry.alt) + '" loading="lazy">' +
+        '<img src="' + sanitizeURL(resolveImagePath(entry.src)) + '" alt="' + escapeHTML(entry.alt) + '" loading="lazy">' +
         '</figure>';
     }).join('');
   }
@@ -125,7 +134,7 @@
 
     directory.innerHTML = schools.map(function (item) {
       var searchText = normalizeText(item.name + ' ' + item.country);
-      return '<a class="school-directory-card editorial-layer" href="' + escapeHTML(schoolHref(item)) + '" data-school-card data-search-text="' + escapeHTML(searchText) + '" data-animate>' +
+      return '<a class="school-directory-card editorial-layer" href="' + sanitizeURL(schoolHref(item)) + '" data-school-card data-search-text="' + escapeHTML(searchText) + '" data-animate>' +
         '<span>' + escapeHTML(item.country) + '</span>' +
         '<strong>' + escapeHTML(item.name) + '</strong>' +
         '</a>';
