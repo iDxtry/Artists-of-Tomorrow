@@ -348,28 +348,18 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-<<<<<<< ours
-
     // Leaders of Tomorrow mobile navigation toggle
     const lotNavToggle = document.getElementById('lotNavToggle');
     const lotNav = document.getElementById('lotNav');
     if (lotNavToggle && lotNav) {
         const lotSubmenuToggles = lotNav.querySelectorAll('.submenu-toggle');
 
-=======
-
-    // Leaders of Tomorrow mobile navigation toggle
-    const lotNavToggle = document.getElementById('lotNavToggle');
-    const lotNav = document.getElementById('lotNav');
-    if (lotNavToggle && lotNav) {
->>>>>>> theirs
         lotNavToggle.addEventListener('click', function() {
             const open = lotNav.classList.toggle('lot-nav--open');
             lotNavToggle.classList.toggle('lot-nav-toggle--active', open);
             lotNavToggle.setAttribute('aria-expanded', String(open));
         });
 
-<<<<<<< ours
         lotSubmenuToggles.forEach(function(toggle) {
             toggle.setAttribute('aria-expanded', 'false');
             toggle.addEventListener('click', function(event) {
@@ -398,26 +388,6 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
-=======
-        lotNav.querySelectorAll('.lot-nav-link').forEach(function(link) {
-            link.addEventListener('click', function() {
-                lotNav.classList.remove('lot-nav--open');
-                lotNavToggle.classList.remove('lot-nav-toggle--active');
-                lotNavToggle.setAttribute('aria-expanded', 'false');
-            });
-        });
-    }
-
-    // Fade-in elements when they enter the viewport
-    const observer = new IntersectionObserver((entries, obs) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('in-view');
-                obs.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.1 });
->>>>>>> theirs
 
     // Add special effects to prizes section
     const enhancePrizes = function() {

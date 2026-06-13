@@ -54,7 +54,6 @@
     }
 
     return element;
-<<<<<<< ours
   }
 
   function profileHref(slug) {
@@ -124,81 +123,18 @@
       popup.appendChild(createElement('span', {
         className: 'map-popup-country',
         text: s.country
-=======
-  }
-
-  function activePopupContent(name, sectionId, imagePath) {
-    var popup = createElement('div', { className: 'map-popup-content' });
-    var eyebrow = createElement('span', {
-      className: 'map-popup-eyebrow',
-      text: 'Active program'
-    });
-    var title = createElement('p', {
-      className: 'map-popup-title',
-      text: name
-    });
-    var button = createElement('button', {
-      className: 'map-popup-link',
-      attributes: { type: 'button' }
-    });
-    var arrow = createElement('span', {
-      text: '→',
-      attributes: { 'aria-hidden': 'true' }
-    });
-
-    popup.appendChild(eyebrow);
-    popup.appendChild(title);
-
-    if (imagePath) {
-      var imageWrapper = createElement('div', { className: 'map-popup-image' });
-      var image = createElement('img', {
-        attributes: {
-          src: imagePath,
-          alt: '1st Place Artwork',
-          loading: 'lazy'
-        }
-      });
-      imageWrapper.appendChild(image);
-      popup.appendChild(imageWrapper);
-    }
-
-    button.append('Explore this school ', arrow);
-    button.addEventListener('click', function () {
-      var el = document.getElementById(sectionId);
-      if (el) {
-        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    });
-    popup.appendChild(button);
-
-    return popup;
-  }
-
-  function partnerPopupContent(name, country) {
-    var popup = createElement('div', { className: 'map-popup-content' });
-
-    if (country) {
-      popup.appendChild(createElement('span', {
-        className: 'map-popup-country',
-        text: country
->>>>>>> theirs
       }));
     }
 
     popup.appendChild(createElement('p', {
       className: 'map-popup-title',
-<<<<<<< ours
       text: s.name
-=======
-      text: name
->>>>>>> theirs
     }));
     popup.appendChild(createElement('span', {
       className: 'map-popup-badge map-popup-badge--active',
       text: 'Partner School'
     }));
 
-<<<<<<< ours
     if (s.slug) {
       var link = createElement('a', {
         className: 'map-popup-link',
@@ -212,8 +148,6 @@
       popup.appendChild(link);
     }
 
-=======
->>>>>>> theirs
     return popup;
   }
 
@@ -227,11 +161,7 @@
   activeSites.forEach(function (s) {
     L.marker([s.lat, s.lng], { icon: activeIcon, riseOnHover: true, zIndexOffset: 1000 })
       .addTo(map)
-<<<<<<< ours
       .bindPopup(activePopupContent(s.name, s.href, s.img), { maxWidth: 260 });
-=======
-      .bindPopup(activePopupContent(s.name, s.sectionId, s.img), { maxWidth: 260 });
->>>>>>> theirs
   });
 
   // ── Partner schools (62) — loaded from shared Latin America data ───────────────
@@ -262,11 +192,7 @@
   partnerSites.forEach(function (s) {
     L.marker([s.lat, s.lng], { icon: activeIcon, riseOnHover: true })
       .addTo(map)
-<<<<<<< ours
       .bindPopup(partnerPopupContent(s), { maxWidth: 240 });
-=======
-      .bindPopup(partnerPopupContent(s.name, s.country), { maxWidth: 240 });
->>>>>>> theirs
   });
 
   var allSites = activeSites.concat(partnerSites);

@@ -3365,7 +3365,7 @@ footer::before {
 }
 
 .latin-america-winners .honorable-section-header {
-    margin-top: clamp(64px, 8vw, 96px);
+    margin-top: clamp(88px, 10vw, 128px);
     margin-bottom: clamp(24px, 4vw, 36px);
 }
 
