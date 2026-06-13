@@ -54,8 +54,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
         }, {
-            rootMargin: '0px 0px -10%',
-            threshold: 0.1
+            rootMargin: '0px 0px -5%',
+            threshold: 0.01
         });
 
         animatedElements.forEach((element, index) => {
