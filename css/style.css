@@ -3365,7 +3365,7 @@ footer::before {
 }
 
 .latin-america-winners .honorable-section-header {
-    margin-top: clamp(88px, 10vw, 128px);
+    margin-top: clamp(132px, 14vw, 196px);
     margin-bottom: clamp(24px, 4vw, 36px);
 }
 
@@ -3378,6 +3378,12 @@ footer::before {
     margin: 0 auto 4px;
     text-align: center;
     color: var(--text-muted);
+}
+
+@media (max-width: 599px) {
+    .latin-america-winners .honorable-section-header {
+        margin-top: 112px;
+    }
 }
 
 .school-profile-grid {
