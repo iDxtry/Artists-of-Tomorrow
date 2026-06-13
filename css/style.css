@@ -941,6 +941,11 @@ nav ul li.nav-lot-item>a.nav-lot-link .lot-nav-badge {
     z-index: 1;
 }
 
+.hero [data-animate] {
+    opacity: 1;
+    transform: none;
+}
+
 .page-content>.hero {
     margin-top: -90px;
 }
