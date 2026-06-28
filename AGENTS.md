@@ -119,7 +119,7 @@ The CSP is set globally in `staticwebapp.config.json` (not in HTML meta tags). A
 
 ## Error Handling & Sitemap
 
-`staticwebapp.config.json` rewrites Azure Static Web Apps 404 responses to `404.html`. Keep that file present, `noindex`, and aligned with the standard AOT header/footer conventions. The 404 page uses `.error-page-section`, `.error-page-card`, `.error-page-kicker`, and `.error-page-actions` styles in `css/style.css`.
+`staticwebapp.config.json` rewrites Azure Static Web Apps 404 responses to `404.html`. Keep that file present, `noindex`, and aligned with the standard AOT header/footer conventions. Because the rewrite preserves the originally requested missing URL in the browser, `404.html` must use root-relative internal asset, image, script, and navigation URLs (for example `/css/style.css`, `/js/main.js`, and `/index.html`) so nested missing paths still load correctly. The 404 page uses `.error-page-section`, `.error-page-card`, `.error-page-kicker`, and `.error-page-actions` styles in `css/style.css`.
 
 `sitemap.xml` lists root-level public HTML routes only (for example `/about.html`, not `/pages/about.html`) and intentionally excludes `404.html`. Update it when adding, removing, or renaming public pages.
 
