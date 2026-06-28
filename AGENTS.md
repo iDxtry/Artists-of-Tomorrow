@@ -183,6 +183,11 @@ All images in `images/` are served with a 1-year browser cache. See the [Caching
 ### Latin America Partner School Profile (`latin-america-school.html`)
 - Displays age range divisions dynamically (e.g. `Ages 8-11, 12-15`, omitting categories with 0 submissions).
 - The count banner displays student submission count dynamically (e.g. `6 student submissions.`).
+- Shared Latin America school metadata in `js/school-data.js` intentionally excludes school-level latitude/longitude; do not add precise coordinates there without privacy review and partner consent.
+
+### Global Journey Map (`our-journey.html` / `js/map-init.js`)
+- The map may show precise pins for the public Nathupur campus profiles only.
+- Latin America partner coverage is represented by coarse country-level region markers and counts, not individual school coordinates, to avoid publishing sensitive youth-program location data.
 
 ### Latin America Competition Gallery (`latin-america-competition.html`)
 - Country honorable mentions are rendered dynamically by `js/latin-america-competition.js` inside `[data-country-honorable-groups]`.
