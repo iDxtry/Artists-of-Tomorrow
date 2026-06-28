@@ -113,6 +113,10 @@ Page-specific headers use `.page-header > h1`; the homepage uses `.hero` with `.
 
 The CSP is set globally in `staticwebapp.config.json` (not in HTML meta tags). Any new third-party scripts, styles, or frames must be explicitly allow-listed there before they will load in production.
 
+## Security Threat Model
+
+`SECURITY.md` documents the site threat model, trust boundaries, attack-surface notes, and criticality calibration. Update it whenever a change materially alters CSP/header policy, third-party services, donation/form destinations, privacy-sensitive content handling, gallery data rendering, CDN image handling, or deployment exposure.
+
 ## Error Handling & Sitemap
 
 `staticwebapp.config.json` rewrites Azure Static Web Apps 404 responses to `404.html`. Keep that file present, `noindex`, and aligned with the standard AOT header/footer conventions. The 404 page uses `.error-page-section`, `.error-page-card`, `.error-page-kicker`, and `.error-page-actions` styles in `css/style.css`.

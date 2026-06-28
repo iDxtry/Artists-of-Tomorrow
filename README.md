@@ -25,6 +25,7 @@ There is no install step, package manager, bundler, or generated build output re
 | `images/` | Logos, portraits, artwork, social icons, and gallery assets. |
 | `scripts/` | Maintenance scripts, including Latin America gallery data generation. |
 | `staticwebapp.config.json` | Azure Static Web Apps routing, 404 rewrite, CSP, and cache headers. |
+| `SECURITY.md` | Security threat model, trust boundaries, attack-surface notes, and criticality calibration. |
 | `sitemap.xml` | Public root-level routes for search engines. |
 | `.github/workflows/` | Azure Static Web Apps deployment workflow. |
 
@@ -33,6 +34,8 @@ There is no install step, package manager, bundler, or generated build output re
 Merging to `main` deploys through Azure Static Web Apps. The deployment workflow uses `skip_app_build: true`, so files are published as-is from the repository root.
 
 Any new third-party script, stylesheet, frame, or connection target must be allow-listed in `staticwebapp.config.json` before it will load correctly in production.
+
+See `SECURITY.md` for the site threat model, security review priorities, and risk severity calibration.
 
 ## Development Notes
 

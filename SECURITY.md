@@ -1,0 +1,47 @@
+# Security Threat Model
+
+## Overview
+
+Artists of Tomorrow is a no-build static website for a youth-art nonprofit. It is deployed from the repository root to Azure Static Web Apps (`.github/workflows/azure-static-web-apps-kind-glacier-0be94221e.yml`) with `skip_app_build: true`; there is no production backend, database, application login, session, API, or server-side payment flow. Public pages describe programs, show school locations, render student-artwork galleries, and link/embed external services: Google Analytics, Microsoft Clarity, Google Fonts, Leaflet from unpkg, CARTO/OpenStreetMap tiles, Google Forms, email, social sites, and a GoFundMe widget.
+
+The most important production risks are therefore client-side compromise, privacy mistakes, static asset/content integrity, third-party supply chain, deployment-token abuse, and accidental publication of sensitive content. Traditional server vulnerabilities such as SQL injection, SSRF, CSRF against first-party state, server-side deserialization, and authentication/authorization bypass are largely out of scope because the site has no first-party server state or privileged runtime endpoints.
+
+The codebase has notable hardening: global security headers and CSP in `staticwebapp.config.json`; HSTS, `nosniff`, referrer and permissions policies; no inline executable JavaScript allowed by CSP; Leaflet script/style use SRI in `our-journey.html`; GoFundMe is sandboxed in `support.html`; external links generally use `rel="noopener noreferrer"`; analytics load only after local consent in `js/analytics-consent.js`; dynamic renderers use `textContent`, DOM creation, `escapeHTML`, and scheme checks before writing `innerHTML`.
+
+## Threat model, trust boundaries, and assumptions
+
+**Attacker-controlled inputs:** public HTTP requests for static files; URL path/query/hash such as `latin-america-school.html?school=...`; client-side search fields; clicks/keyboard events; browser storage values including `cookieConsentStatus`; network responses from allowed third parties; and content loaded from the configured Latin America image CDN. These attackers should not be able to edit repository files, Azure config, GitHub secrets, or Cloudflare-hosted assets.
+
+**Operator-controlled inputs:** Azure Static Web Apps configuration, DNS/TLS, GitHub secrets, GoFundMe/Google Form destination URLs, Google Analytics/Clarity IDs, and the production Cloudflare CDN contents for `images/latin-america/...` referenced by `js/main.js` and gallery manifests.
+
+**Developer-controlled inputs:** HTML/CSS/JS files, `js/school-data.js`, `js/latin-america-gallery-data.js`, `js/artwork-count-data.js`, images, docs, and the local gallery archive consumed by `scripts/build-latin-america-galleries.js`. The gallery builder is maintenance tooling, not production runtime, but it processes untrusted PDFs/images from a gitignored archive and emits publishable manifests/assets.
+
+**Privacy assumptions:** Published artwork and event photos may involve minors and partner schools. The current manifest uses school names, artwork numbers, and approximate coordinates rather than student names. Security review should treat any newly added captions, filenames, EXIF, form fields, or photos as potential PII requiring consent and minimization.
+
+**Authorization assumptions:** There is no user account model or admin panel. The main authorization boundary is repository/deployment access: anyone who can merge to `main` or alter deployment secrets can publish arbitrary client-side code.
+
+## Attack surface, mitigations, and attacker stories
+
+**Static hosting and headers.** `staticwebapp.config.json` is central. Its CSP restricts default sources to self, allows only specific script providers, blocks plugins with `object-src 'none'`, limits framing with `frame-ancestors 'self'`, and pins form/frame destinations. A regression that adds `unsafe-inline` to `script-src`, broadens to `https:`, removes frame restrictions, or omits HSTS/nosniff would materially increase exploitability of any HTML injection. Because `/images/*` are cached immutable for one year, replaced sensitive images may remain visible to returning users unless filenames are changed.
+
+**Client-side DOM rendering.** Gallery and school scripts render arrays from repo/CDN-associated data into the DOM. `js/latin-america-school.js` reads `school` from `URLSearchParams` but only uses it for an exact slug lookup; unknown values show the directory. It filters search input using normalized strings and writes user-provided search text only into comparisons, not HTML. `js/latin-america-competition.js` and `js/asia-competition-gallery.js` use `escapeHTML` for captions/titles and `sanitizeURL` for image URLs before `innerHTML`; `js/map-init.js` constructs Leaflet popups with DOM APIs and `textContent`. An attacker story worth testing is: “Can a malicious manifest item or school name become executable HTML/JS, a `javascript:` URL, or an unsafe attribute?” Current controls make URL-only attacks low likelihood, but future data fields must preserve escaping.
+
+**Third-party scripts, frames, and tracking.** Leaflet is loaded from `https://unpkg.com` with SRI, but CSP also allow-lists unpkg for scripts. Google Analytics and Microsoft Clarity are dynamically appended only if `localStorage.cookieConsentStatus === 'accepted'`; localStorage tampering affects only the local visitor. Compromise or misconfiguration of analytics/third-party providers can execute in the first-party origin once loaded, so avoid adding new script hosts and prefer SRI/pinning where possible. The GoFundMe widget is limited to `frame-src https://www.gofundme.com` and sandboxed, reducing but not eliminating phishing or payment-redirection risk if links are changed.
+
+**Maps and location data.** `js/map-init.js` exposes partner-school coordinates and links to school profiles. This is intended functionality but has a unique privacy/safety consideration: precise school locations could affect vulnerable communities. Review any move from approximate to exact coordinates, and any addition of student-level addresses or names, as high-impact privacy changes.
+
+**CDN image handling.** `window.AOT_CDN_BASE_URL` in `js/main.js` maps gitignored Latin America assets to Cloudflare. A compromised CDN can deface galleries or serve tracking pixels; it should not directly execute JavaScript because images are loaded via `<img>`, but broad `img-src https:` means any manifest-controlled HTTPS image can be fetched. Pinning `img-src` to expected hosts would reduce exfiltration/defacement blast radius.
+
+**Build and content pipeline.** `scripts/build-latin-america-galleries.js` recursively processes local archives, PDFs, HEICs, and images using `pdfjs-dist`, Ghostscript with `-dSAFER`, `sharp`, `sips`, and `qlmanage`. It avoids shell injection by using `execFileSync` argument arrays and hashed output names, and it limits duplicate attribution. Risks are parser CVEs, malicious oversized media causing local DoS, and accidental PII publication in generated assets/reports. Since the script is not run in CI production deployment, exploitability is mainly developer workstation or generated-content integrity.
+
+**Deployment supply chain.** The GitHub Actions workflow copies the repository into `_site` excluding `.git`, `.github`, and `_site`, then deploys using an Azure secret. Malicious commits can alter scripts, CSP, fundraising links, or publish unexpected files. Protect `main`, restrict secret access, review preview deployments, and consider excluding non-site docs/configs if not intended public.
+
+## Criticality calibration
+
+**Critical:** exploitable arbitrary JavaScript execution for most visitors without repository privileges; theft or misuse of Azure/GitHub deployment secrets; unauthorized change that redirects donations/forms at scale; publication of sensitive child PII or private scans at scale; CSP change allowing universal third-party script execution.
+
+**High:** stored or DOM XSS via gallery/school data, query/hash, or CDN manifest despite current escaping; compromise of a trusted script host or removal of SRI/consent gating; unsandboxed third-party payment iframe enabling top-level phishing; build-pipeline RCE from untrusted PDFs/images that is likely to affect maintainers.
+
+**Medium:** CDN/image-manifest compromise causing defacement, tracking, or inappropriate content without script execution; overly precise school/minor location disclosure; analytics loaded before consent or privacy policy materially inaccurate; broad CSP relaxations such as `img-src https:` abuse where attacker controls manifest content.
+
+**Low:** missing `noopener` on isolated external links; minor security-header regressions that do not enable execution; client-side availability bugs in carousels/search; stale cached images after replacement; robots.txt assumptions treated as access control.
