@@ -170,7 +170,7 @@ All images in `images/` are served with a 1-year browser cache. See the [Caching
 - Club Roles cards have no emoji icons — they were removed by design.
 - Speech Categories shows 3 cards only: Impromptu Speaking, Prepared Speech, Table Topics. "Professional Speaking" and "Structured Debate" were removed.
 - Speech grid uses `grid-template-columns: repeat(3, minmax(0, 320px)); justify-content: center` to keep 3 cards centered.
-- "Get in Touch" CTA links to the Google Form (`https://docs.google.com/forms/u/3/d/1w3z-RkzNxWh7RVfrivAXPrXs49yjSOq4Xjlmeb5bdyM/edit`), opens in a new tab.
+- "Get in Touch" CTA links to the Google Form (`https://forms.gle/JoZpv3fG9Fz5vV6E8`), opens in a new tab.
 
 ## School Profiles & Galleries
 
