@@ -19,7 +19,7 @@ Kill the server when done: `kill %1`
 
 ## Deployment
 
-Merging to `main` automatically deploys to **Azure Static Web Apps** via `.github/workflows/azure-static-web-apps-kind-glacier-0be94221e.yml`. The workflow sets `skip_app_build: true` because there is no build step — files are deployed as-is from the repo root.
+Merging to `main` automatically deploys to **Azure Static Web Apps** via `.github/workflows/azure-static-web-apps-kind-glacier-0be94221e.yml`. The workflow sets `skip_app_build: true` because there is no build step — files are deployed as-is from the repo root. Keep GitHub-owned workflow actions on Node 24-compatible majors (for example `actions/checkout@v5`) to avoid runner deprecation warnings.
 
 ## Editor Time Tracking
 
