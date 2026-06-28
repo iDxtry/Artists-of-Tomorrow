@@ -8,11 +8,11 @@ After completing any feature or significant change, update the relevant sections
 
 ## Previewing the Site
 
-No build step — the site is plain HTML/CSS/JS. Serve it locally with:
+No build step — the site is plain HTML/CSS/JS. Serve it locally with an explicit loopback bind so the repository working tree is not exposed to other devices on the local network:
 
 ```bash
-python3 -m http.server 8080
-# open http://localhost:8080
+python3 -m http.server 8080 --bind 127.0.0.1
+# open http://127.0.0.1:8080
 ```
 
 Kill the server when done: `kill %1`
