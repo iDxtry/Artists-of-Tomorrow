@@ -4,13 +4,13 @@ Artists of Tomorrow is a no-build static website for the AOT nonprofit, its part
 
 ## Local Preview
 
-Serve the site from the repo root:
+Serve the site from the repo root, binding explicitly to loopback so the working tree is not exposed to other devices on the local network:
 
 ```bash
-python3 -m http.server 8080
+python3 -m http.server 8080 --bind 127.0.0.1
 ```
 
-Then open `http://localhost:8080`.
+Then open `http://127.0.0.1:8080`.
 
 There is no install step, package manager, bundler, or generated build output required for normal development.
 
