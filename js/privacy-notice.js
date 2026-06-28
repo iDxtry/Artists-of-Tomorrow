@@ -26,22 +26,25 @@
     };
 
     document.addEventListener('DOMContentLoaded', () => {
+        let storedConsent = null;
+
         try {
             const legacyValue = localStorage.getItem(LEGACY_CONSENT_KEY);
-            const storedConsent = localStorage.getItem(COOKIE_CONSENT_KEY);
+            storedConsent = localStorage.getItem(COOKIE_CONSENT_KEY);
 
             if (legacyValue && !storedConsent) {
                 localStorage.setItem(COOKIE_CONSENT_KEY, 'accepted');
+                storedConsent = 'accepted';
             }
 
             if (legacyValue) {
                 localStorage.removeItem(LEGACY_CONSENT_KEY);
             }
-
-            if (localStorage.getItem(COOKIE_CONSENT_KEY)) {
-                return;
-            }
         } catch (error) {
+            console.warn('Cookie consent storage is unavailable; showing the notice without persistence.', error);
+        }
+
+        if (storedConsent) {
             return;
         }
 
@@ -113,7 +116,7 @@
             try {
                 localStorage.setItem(COOKIE_CONSENT_KEY, status);
             } catch (error) {
-                return;
+                console.warn('Cookie consent choice could not be saved; dismissing the notice for this page view.', error);
             }
 
             window.dispatchEvent(new CustomEvent('aot:cookie-consent-updated', {
