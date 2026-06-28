@@ -107,7 +107,7 @@ Scroll-reveal: add `data-animate` to any element that should fade+rise in on scr
 
 Page-specific headers use `.page-header > h1`; the homepage uses `.hero` with `.hero-title-word--artists/--of/--tomorrow` spans for per-word colour styling.
 
-`submission.html` restores the competition registration workflow. Its header and AOT footer Quick Links include “Submit Your Art,” and its primary CTA opens the Google Form (`https://forms.gle/UDm5e8ZTyvsAxjyQA`) in a new tab so students can receive the unique submission number referenced by the competition rules.
+`submission.html` restores the competition registration workflow. Its header and AOT footer Quick Links include “Submit Your Art,” and its primary CTA opens the Google Form (`https://forms.gle/UDm5e8ZTyvsAxjyQA`) in a new tab so students can receive the unique submission number referenced by the competition rules. Keep the parent/guardian permission notice and Privacy Policy link near the CTA because submissions may include minors' personal information and scanned artwork.
 
 **Lazy loading:** All `<img>` tags below the fold carry `loading="lazy"`. The sole exception is the `<img>` inside `<header>` (the nav logo) which must remain eager. Do not add `loading="lazy"` to header images and do not remove it from any other `<img>` tag.
 
