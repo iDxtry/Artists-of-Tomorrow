@@ -125,11 +125,11 @@ The CSP is set globally in `staticwebapp.config.json` (not in HTML meta tags). A
 
 | Route | Header | TTL |
 |-------|--------|-----|
-| `/images/*` | `public, max-age=31536000, immutable` | 1 year |
+| `/images/*` | `public, max-age=86400` | 1 day |
 | `/css/*` | `public, max-age=86400` | 1 day |
 | `/js/*` | `public, max-age=86400` | 1 day |
 
-Images are cached for 1 year because their filenames don't change unless the file is replaced (which acts as natural cache-busting). If you replace an image and keep the same filename, existing visitors will serve a stale cached version until the TTL expires — rename the file to force a cache bust.
+Images are cached for 1 day because image filenames are stable and may be replaced in place when youth-program or partner-school content needs correction or removal. Use renamed/versioned filenames for assets that are safe to cache for longer periods.
 
 ## Images
 
@@ -159,7 +159,7 @@ sips -s format jpeg -s formatOptions 85 -Z 1600 input.jpg --out output.jpg
 sips -s format jpeg -s formatOptions 82 input.png --out output.jpg
 ```
 
-All images in `images/` are served with a 1-year browser cache. See the [Caching](#caching) section for implications when replacing files.
+All images in `images/` are served with a 1-day browser cache so replacements and removals can propagate promptly. See the [Caching](#caching) section for implications when replacing files.
 
 ## Leaders of Tomorrow Page
 
