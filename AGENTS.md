@@ -61,7 +61,7 @@ All interactive behaviour lives in `js/main.js` (single `DOMContentLoaded` liste
 - **Horizontal scroll carousels** — `scroll-snap` based, with prev/next buttons and requestAnimationFrame-scheduled resize handling.
 - **Button pointer effect** — `addButtonEffects()` uses delegated document listeners to update pointer-position CSS variables for `.cta-button` / `.secondary-button`, gated to fine-pointer hover devices and skipped for reduced-motion users.
 
-`js/privacy-notice.js` manages the cookie-consent banner (`.cookie-consent`).  
+`js/privacy-notice.js` manages the cookie-consent banner (`.cookie-consent`) and must keep the banner visible/dismissible even when `localStorage` is unavailable.
 `js/clarity-helper.js` wraps Microsoft Clarity event tracking.
 
 ## Shared Header
