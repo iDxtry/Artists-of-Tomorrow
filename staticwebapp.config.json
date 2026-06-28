@@ -29,7 +29,7 @@
     }
   },
   "globalHeaders": {
-    "content-security-policy": "default-src 'self'; script-src 'self' https://www.googletagmanager.com https://www.clarity.ms https://*.clarity.ms https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://unpkg.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://analytics.google.com https://www.googletagmanager.com https://*.clarity.ms https://c.clarity.ms https://e.clarity.ms; frame-src 'self' https://www.gofundme.com; object-src 'none'; base-uri 'self'; form-action 'self' https://forms.gle https://docs.google.com https://www.gofundme.com; frame-ancestors 'self'; upgrade-insecure-requests;",
+    "content-security-policy": "default-src 'self'; script-src 'self' https://www.googletagmanager.com https://www.clarity.ms https://c.clarity.ms https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://unpkg.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://analytics.google.com https://www.googletagmanager.com https://*.clarity.ms https://c.clarity.ms https://e.clarity.ms; frame-src 'self' https://www.gofundme.com; object-src 'none'; base-uri 'self'; form-action 'self' https://forms.gle https://docs.google.com https://www.gofundme.com; frame-ancestors 'self'; upgrade-insecure-requests;",
     "X-Content-Type-Options": "nosniff",
     "X-Frame-Options": "SAMEORIGIN",
     "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
