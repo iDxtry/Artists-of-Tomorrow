@@ -56,10 +56,6 @@
     return element;
   }
 
-  function profileHref(slug) {
-    return 'latin-america-school.html?school=' + encodeURIComponent(slug);
-  }
-
   function activePopupContent(name, href, imagePath) {
     var popup = createElement('div', { className: 'map-popup-content' });
     var eyebrow = createElement('span', {
@@ -116,37 +112,21 @@
     return popup;
   }
 
-  function partnerPopupContent(s) {
+  function partnerRegionPopupContent(region) {
     var popup = createElement('div', { className: 'map-popup-content' });
 
-    if (s.country) {
-      popup.appendChild(createElement('span', {
-        className: 'map-popup-country',
-        text: s.country
-      }));
-    }
-
+    popup.appendChild(createElement('span', {
+      className: 'map-popup-country',
+      text: region.label
+    }));
     popup.appendChild(createElement('p', {
       className: 'map-popup-title',
-      text: s.name
+      text: region.count + (region.count === 1 ? ' partner school' : ' partner schools')
     }));
     popup.appendChild(createElement('span', {
       className: 'map-popup-badge map-popup-badge--active',
-      text: 'Partner School'
+      text: 'Regional partner network'
     }));
-
-    if (s.slug) {
-      var link = createElement('a', {
-        className: 'map-popup-link',
-        attributes: { href: profileHref(s.slug) }
-      });
-      var arrow = createElement('span', {
-        text: '→',
-        attributes: { 'aria-hidden': 'true' }
-      });
-      link.append('Explore this school ', arrow);
-      popup.appendChild(link);
-    }
 
     return popup;
   }
@@ -164,21 +144,23 @@
       .bindPopup(activePopupContent(s.name, s.href, s.img), { maxWidth: 260 });
   });
 
-  // ── Partner schools (62) — loaded from shared Latin America data ───────────────
-  var partnerSites = window.aotLatinAmericaSchools || [];
-
-  // ── Country cluster halos — soft coral glow behind dense clusters ─────────
-  // Rendered first so dots sit on top.
-  var clusterHalos = [
-    { lat: 13.72, lng: -89.22, radius: 28000, label: 'El Salvador' }, // 16 schools
-    { lat: 14.55, lng: -90.60, radius: 30000, label: 'Guatemala' },   // 14 schools
-    { lat: 14.10, lng: -87.21, radius: 22000, label: 'Honduras' },    // 14 schools
-    { lat: 19.42, lng: -99.15, radius: 22000, label: 'Mexico' }       // 9 schools
+  // ── Latin America partner regions ───────────────────────────────────────
+  // Show country-level centroids/counts only. Do not publish school-level
+  // coordinates without an explicit privacy review and partner consent.
+  var partnerRegions = [
+    { lat: 13.8, lng: -88.9, radius: 85000, label: 'El Salvador', count: 16 },
+    { lat: 15.2, lng: -86.2, radius: 100000, label: 'Honduras', count: 14 },
+    { lat: 15.6, lng: -90.3, radius: 95000, label: 'Guatemala', count: 14 },
+    { lat: 8.5, lng: -80.0, radius: 85000, label: 'Panama', count: 2 },
+    { lat: 18.8, lng: -70.2, radius: 85000, label: 'Dominican Republic', count: 3 },
+    { lat: 9.8, lng: -84.1, radius: 85000, label: 'Costa Rica', count: 2 },
+    { lat: 22.8, lng: -102.5, radius: 180000, label: 'Mexico', count: 9 },
+    { lat: 4.6, lng: -74.1, radius: 90000, label: 'Colombia', count: 2 }
   ];
 
-  clusterHalos.forEach(function (h) {
-    L.circle([h.lat, h.lng], {
-      radius: h.radius,
+  partnerRegions.forEach(function (region) {
+    L.circle([region.lat, region.lng], {
+      radius: region.radius,
       color: '#E59D83',
       weight: 0,
       fillColor: '#F4AE96',
@@ -186,16 +168,13 @@
       interactive: false,
       className: 'aot-cluster-halo'
     }).addTo(map);
-  });
 
-  // ── Render partner school pins (pulsing activeIcon) ──────────────────────
-  partnerSites.forEach(function (s) {
-    L.marker([s.lat, s.lng], { icon: activeIcon, riseOnHover: true })
+    L.marker([region.lat, region.lng], { icon: activeIcon, riseOnHover: true })
       .addTo(map)
-      .bindPopup(partnerPopupContent(s), { maxWidth: 240 });
+      .bindPopup(partnerRegionPopupContent(region), { maxWidth: 240 });
   });
 
-  var allSites = activeSites.concat(partnerSites);
+  var allSites = activeSites.concat(partnerRegions);
   var allSiteBounds = L.latLngBounds(allSites.map(function (s) {
     return [s.lat, s.lng];
   }));
