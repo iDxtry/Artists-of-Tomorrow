@@ -119,6 +119,10 @@ The CSP is set globally in `staticwebapp.config.json` (not in HTML meta tags). A
 
 `SECURITY.md` documents the site threat model, trust boundaries, attack-surface notes, and criticality calibration. Update it whenever a change materially alters CSP/header policy, third-party services, donation/form destinations, privacy-sensitive content handling, gallery data rendering, CDN image handling, or deployment exposure.
 
+## Repository Secret Safeguards
+
+`.gitignore` must keep local environment files out of version control, including `.env`, `.env.local`, `.env.development.local`, `.env.test.local`, and `.env.production.local`, so local secrets and deployment configuration are not accidentally committed or served with the static site.
+
 ## Error Handling & Sitemap
 
 `staticwebapp.config.json` rewrites Azure Static Web Apps 404 responses to `404.html`. Keep that file present, `noindex`, and aligned with the standard AOT header/footer conventions. Because the rewrite preserves the originally requested missing URL in the browser, `404.html` must use root-relative internal asset, image, script, and navigation URLs (for example `/css/style.css`, `/js/main.js`, and `/index.html`) so nested missing paths still load correctly. The 404 page uses `.error-page-section`, `.error-page-card`, `.error-page-kicker`, and `.error-page-actions` styles in `css/style.css`.
