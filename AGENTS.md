@@ -149,6 +149,7 @@ Images live in `images/` with subdirectories for `compnathupur/` (event photos u
 - **Favicon:** `images/logo-favicon.png` (64×64 PNG, ~12KB) — linked via `<link rel="icon">` on every page. Do not revert this to the SVG; the SVG is 2.5MB and would be fetched separately for every browser tab.
 - **Portraits:** WebP format. `mishika.webp` (not `.jpg` or `.png`).
 - **Competition Galleries & Carousels:** WebP format. Images in `images/compnathupur/` and school profiles utilize WebP directly without legacy fallbacks.
+- **Latin America Winner Artwork:** `images/latin-america-winners/` contains committed WebP crops extracted from `Artwork of Winners.pdf` for the public Latin America competition results page. Keep filenames stable/descriptive and regenerate from the source PDF or higher-quality originals when replacing.
 
 **Git-ignored Latin America Images & Cloudflare CDN:**
 * The `images/latin-america/` folder contains 1,000+ files and is intentionally git-ignored.
@@ -201,4 +202,7 @@ All images in `images/` are served with a 1-day browser cache so replacements an
 
 ### Latin America Competition Gallery (`latin-america-competition.html`)
 - Country honorable mentions are rendered dynamically by `js/latin-america-competition.js` inside `[data-country-honorable-groups]`.
+- Regional placements and country honorable mentions are populated from structured data in `js/latin-america-competition.js` and use committed WebP images in `images/latin-america-winners/`.
+- The Ages 12-15 regional winners intentionally render two `1st Place (Tie)` cards before 2nd and 3rd place.
+- Honorable mention slots marked `None` in the source roster are omitted rather than shown as placeholders or "No honoree" cards.
 - `.latin-america-winners .honorable-section-header` intentionally overrides the global `.section-header` rhythm so the "Country Honorable Mentions" heading has clear separation from regional placement cards without doubling the gap before the first country group.
