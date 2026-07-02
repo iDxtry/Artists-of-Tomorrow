@@ -107,7 +107,7 @@ Scroll-reveal: add `data-animate` to any element that should fade+rise in on scr
 
 Page-specific headers use `.page-header > h1`; the homepage uses `.hero` with `.hero-title-word--artists/--of/--tomorrow` spans for per-word colour styling.
 
-`submission.html` restores the competition registration workflow. Its header and AOT footer Quick Links include “Submit Your Art,” and its primary CTA opens the Google Form (`https://forms.gle/UDm5e8ZTyvsAxjyQA`) in a new tab so students can receive the unique submission number referenced by the competition rules. Keep the parent/guardian permission notice and Privacy Policy link near the CTA because submissions may include minors' personal information and scanned artwork.
+There is no public `submission.html` page and no shared "Submit Your Art" navigation item. Do not re-add a public registration CTA unless a new approved submission workflow and privacy notice are provided.
 
 **Lazy loading:** All `<img>` tags below the fold carry `loading="lazy"`. The sole exception is the `<img>` inside `<header>` (the nav logo) which must remain eager. Do not add `loading="lazy"` to header images and do not remove it from any other `<img>` tag.
 
@@ -127,7 +127,7 @@ The CSP is set globally in `staticwebapp.config.json` (not in HTML meta tags). A
 
 `staticwebapp.config.json` rewrites Azure Static Web Apps 404 responses to `404.html`. Keep that file present, `noindex`, and aligned with the standard AOT header/footer conventions. Because the rewrite preserves the originally requested missing URL in the browser, `404.html` must use root-relative internal asset, image, script, and navigation URLs (for example `/css/style.css`, `/js/main.js`, and `/index.html`) so nested missing paths still load correctly. The 404 page uses `.error-page-section`, `.error-page-card`, `.error-page-kicker`, and `.error-page-actions` styles in `css/style.css`.
 
-`sitemap.xml` lists root-level public HTML routes only (for example `/about.html`, not `/pages/about.html`) and intentionally excludes `404.html`. Update it when adding, removing, or renaming public pages.
+`sitemap.xml` lists root-level public HTML routes only (for example `/about.html`, not `/pages/about.html`) and intentionally excludes `404.html` and removed/non-public pages such as `submission.html`. Update it when adding, removing, or renaming public pages.
 
 ## Caching
 
